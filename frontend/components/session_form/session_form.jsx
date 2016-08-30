@@ -2,7 +2,7 @@ import React from 'react';
 
 const SessionForm = ({ }) => (
   <form>
-    <span>I'm a form!</span>
+    <span>I'm not a form!</span>
   </form>
 );
 
