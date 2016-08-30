@@ -17,7 +17,6 @@ module.exports = {
     ]
   },
   devtool: 'source-maps',
-  watch: true,
   resolve: {
     extensions: ["", ".js", ".jsx" ]
   }
