@@ -13,3 +13,107 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+h1 {
+  font-size: 48px;
+  padding: 20px;
+}
+
+.session-tabs-box {
+  width: 580px;
+  box-sizing: border-box;
+  background: #f5f5f1;
+  border: 1px solid #DADBD6;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+.session-tabs {
+  margin-top: 20px;
+  margin-left: 40px;
+  display: flex;
+  border-left: 1px solid #DADBD6;
+}
+
+.session-tab {
+  width: 80px;
+  height: 40px;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #DADBD6;
+  border-right: 1px solid #DADBD6;
+  z-index: 1;
+}
+
+.session-tab:hover {
+  text-decoration: underline;
+}
+
+.inactive {
+  background: #f5f5f1;
+  border-bottom: 1px solid #DADBD6;
+  color: #0192B5;
+}
+
+.active {
+  border-bottom: 1px solid white;
+}
+
+.session-form-box {
+  position: relative;
+  top: -1px;
+  display:block;
+  background: white;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top: 1px solid #DADBD6;
+  padding-left: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.text {
+  display: block;
+  width: 230px;
+  border: 1px solid #c2c2c2;
+  border-right: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+  margin: 3px 0px;
+  padding: 6px;
+}
+
+.radio-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 230px;
+}
+
+.session-form label {
+  display: block;
+  padding: 6px 0px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 20px;
+  padding: 10px;
+  border-bottom: 1px solid #DADBD6;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+nav ul li {
+  padding: 10px;
+}
