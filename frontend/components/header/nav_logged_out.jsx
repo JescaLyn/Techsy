@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import CartLink from './cart_link';
 
 class NavLoggedOut extends React.Component {
   handleClick(type) {
@@ -25,9 +26,7 @@ class NavLoggedOut extends React.Component {
             Login
           </li>
 
-          <li className="cart-link">
-            <Link to="/cart">Cart</Link>
-          </li>
+          <CartLink />
         </ul>
       </nav>
     );

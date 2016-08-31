@@ -46,8 +46,8 @@ Techsy is a web application inspired by Etsy built using Ruby on Rails and React
 - [X] User signup/signin components
 - [X] Blank landing component after signup/signin
 - [X] Style signup/signin components
-- [ ] Seed users
-- [ ] Review phase 1
+- [X] Seed users
+- [X] Review phase 1
 
 ### Phase 2: Listing Model, API, and components (2 days)
 

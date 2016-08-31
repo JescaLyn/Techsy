@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import CartLink from './cart_link';
 
 const NavLoggedOut = ({ openModal, currentUser, logout }) => {
   let shopLink;
@@ -22,9 +23,7 @@ const NavLoggedOut = ({ openModal, currentUser, logout }) => {
           <Link to={"/people/" + currentUser.username}>You</Link>
         </li>
 
-        <li className="cart-link">
-          <Link to="/cart">Cart</Link>
-        </li>
+        <CartLink />
       </ul>
     </nav>
   );

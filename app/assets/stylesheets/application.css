@@ -184,5 +184,27 @@ nav ul li {
 }
 
 .cart-link {
-  color: white;
+  display: flex;
+  flex-direction: column;
+  width: 25px;
+  height: 20px;
+  color: var(--link-text);
+  padding: 0px 15px;
+  align-items: center;
+}
+
+.cart-icon {
+  background: white;
+  max-width:100%;
+  max-height:100%;
+  margin-bottom: 3px;
+}
+
+.cart-link:hover .cart-icon {
+  background: var(--light-background);
+}
+
+.cart-link:hover {
+  color: var(--light-background);
+  cursor: pointer;
 }
