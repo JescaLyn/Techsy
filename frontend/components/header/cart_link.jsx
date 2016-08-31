@@ -1,9 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const CartLink = () => (
   <li className="cart-link">
-    <img className="cart-icon" src="/assets/cart_icon_attempt1.png"/>
-    <span>Cart</span>
+    <Link to="/cart">
+      <img className="cart-icon" src="http://res.cloudinary.com/dzikfml7y/image/upload/v1472685524/cart_icon_attempt1_l3lykg.png"/>
+      <span>Cart</span>
+    </Link>
   </li>
 );
 

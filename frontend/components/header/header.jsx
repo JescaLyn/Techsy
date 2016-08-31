@@ -24,7 +24,9 @@ class Header extends React.Component {
     return (
       <header>
         <div className="logo">
-          Techsy!
+          <Link to="/">
+            <img src="http://res.cloudinary.com/dzikfml7y/image/upload/v1472686007/logo_zhmtia.png" />
+          </Link>
         </div>
         {nav}
       </header>
