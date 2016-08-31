@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const NavLoggedOut = ({ openModal, currentUser }) => {
+const NavLoggedOut = ({ openModal, currentUser, logout }) => {
   let shopLink;
   if (currentUser.shop) {
     shopLink = <Link to={"/shop/" + currentUser.shop.name}>Your Shop</Link>;
@@ -12,9 +12,13 @@ const NavLoggedOut = ({ openModal, currentUser }) => {
   return (
     <nav>
       <ul>
-        <li>{shopLink}</li>
+        <li className="nav-link">
+          <button onClick={logout}>Logout</button>
+        </li>
 
-        <li>
+        <li className="nav-link">{shopLink}</li>
+
+        <li className="nav-link">
           <Link to={"/people/" + currentUser.username}>You</Link>
         </li>
 

@@ -12,6 +12,7 @@ class Header extends React.Component {
       nav = <NavLoggedIn
         openModal={this.props.openModal}
         currentUser={this.props.currentUser}
+        logout={this.props.logout}
         />;
     } else {
       nav = <NavLoggedOut

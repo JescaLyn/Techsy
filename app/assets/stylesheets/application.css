@@ -182,3 +182,7 @@ nav ul li {
 .login-link:hover {
   background: var(--link-text-background);
 }
+
+.cart-link {
+  color: white;
+}

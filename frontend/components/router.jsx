@@ -6,6 +6,7 @@ import Splash from './splash/splash';
 const AppRouter = () => (
   <Router history={ hashHistory }>
     <Route path="/" component={ App }>
+      <IndexRoute component={ Splash }/>
     </Route>
   </Router>
 );
