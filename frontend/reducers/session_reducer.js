@@ -18,6 +18,9 @@ const SessionReducer = (state = defaultState, action) => {
       return newState;
     case SessionConstants.LOGOUT:
       return newState;
+    case SessionConstants.CLEAR_ERRORS:
+      newState.errors = [];
+      return newState;
     default:
       return state;
   }

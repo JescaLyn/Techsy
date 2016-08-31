@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dzikfml7y
+  api_key: '913457981224284'
+  api_secret: ZR-Ri6CkDngnQZMrrKSZHKfb57w
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dzikfml7y
+  api_key: '913457981224284'
+  api_secret: ZR-Ri6CkDngnQZMrrKSZHKfb57w
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dzikfml7y
+  api_key: '913457981224284'
+  api_secret: ZR-Ri6CkDngnQZMrrKSZHKfb57w
+  enhance_image_tag: true
+  static_image_support: false

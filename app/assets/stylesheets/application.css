@@ -15,8 +15,18 @@
  */
 
 body {
-  font-family: sans-serif;
+  font-family: 'Cabin', sans-serif;
   font-size: 14px;
+
+  --light-border-color: #DADBD6;
+  --button-1-color: #34A8C4;
+  --button-1-hover: #48b0c9;
+  --text-border-top-left: #c2c2c2;
+  --text-border-bottom-right: #e6e6e6;
+  --link-text: white;
+  --link-text-background: #256574;
+  --header-background: #0d5465;
+  --light-background: #9ebac1;
 }
 
 h1 {
@@ -27,8 +37,8 @@ h1 {
 .session-tabs-box {
   width: 580px;
   box-sizing: border-box;
-  background: #f5f5f1;
-  border: 1px solid #DADBD6;
+  background: var(--light-background);
+  border: 1px solid var(--light-border-color);
   border-radius: 5px;
   margin: 0 auto;
 }
@@ -37,7 +47,7 @@ h1 {
   margin-top: 20px;
   margin-left: 40px;
   display: flex;
-  border-left: 1px solid #DADBD6;
+  border-left: 1px solid var(--light-border-color);
 }
 
 .session-tab {
@@ -47,19 +57,20 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-top: 1px solid #DADBD6;
-  border-right: 1px solid #DADBD6;
+  border-top: 1px solid var(--light-border-color);
+  border-right: 1px solid var(--light-border-color);
   z-index: 1;
 }
 
 .session-tab:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .inactive {
-  background: #f5f5f1;
-  border-bottom: 1px solid #DADBD6;
-  color: #0192B5;
+  background: var(--header-background);
+  border-bottom: 1px solid var(--light-border-color);
+  color: var(--link-text);
 }
 
 .active {
@@ -73,7 +84,7 @@ h1 {
   background: white;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
-  border-top: 1px solid #DADBD6;
+  border-top: 1px solid var(--light-border-color);
   padding-left: 40px;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -82,9 +93,9 @@ h1 {
 .text {
   display: block;
   width: 230px;
-  border: 1px solid #c2c2c2;
-  border-right: 1px solid #e6e6e6;
-  border-bottom: 1px solid #e6e6e6;
+  border: 1px solid var(--text-border-top-left);
+  border-right: 1px solid var(--text-border-bottom-right);
+  border-bottom: 1px solid var(--text-border-bottom-right);
   margin: 3px 0px;
   padding: 6px;
 }
@@ -100,13 +111,48 @@ h1 {
   padding: 6px 0px;
 }
 
+.modal {
+  width: 580px;
+  height: auto;
+  margin: 0 auto;
+  position: relative;
+  top: 40px;
+}
+
+.logo {
+  font-size: 24px;
+  color: white;
+}
+
+.error {
+  color: red;
+}
+
+.button {
+  background: var(--button-1-color);
+  color: white;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+  width: 230px;
+  height: 35px;
+  margin-top: 10px;
+}
+
+.button:hover {
+  background: var(--button-1-hover);
+}
+
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 40px;
-  padding: 10px;
-  border-bottom: 1px solid #DADBD6;
+  height: 60px;
+  padding: 10px 30px;
+  border-bottom: 1px solid var(--light-border-color);
+  background: var(--header-background);
+  font-size: 16px;
 }
 
 nav ul {
@@ -118,18 +164,21 @@ nav ul li {
   padding: 10px;
 }
 
-.modal {
-  width: 580px;
-  height: auto;
-  margin: 0 auto;
-  position: relative;
-  top: 40px;
+.nav-link, .login-link {
+  color: var(--link-text);
 }
 
-.overlay {
-  background: gray;
+.nav-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
-.logo {
-  font-size: 24px;
+.login-link {
+  border: thin solid var(--link-text);
+  border-radius: 5px;
+  margin: 0px 10px;
+}
+
+.login-link:hover {
+  background: var(--link-text-background);
 }

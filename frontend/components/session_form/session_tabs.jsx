@@ -5,47 +5,61 @@ import LoginForm from './login_form';
 class SessionTabs extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      register: "active",
-      login: "inactive"
-    };
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(event) {
     if (event.target.text === "Register") {
-      this.setState({ register: "active", login: "inactive" });
+      this.props.setModalRegister();
     } else {
-      this.setState({ register: "inactive", login: "active" });
+      this.props.setModalLogin();
     }
+    this.props.clearErrors();
+  }
+
+  renderErrors(){
+    return(
+      <ul>
+        {this.props.errors.map( (error, i) => (
+          <li key={`error-${i}`} className="error">
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
   }
 
   render() {
     let form;
+    let registerClass;
+    let loginClass;
 
-    if (this.state.register === "active") {
+    if (this.props.modalType === "register") {
       form = <SignUpForm
         signup={this.props.signup}
-        errors={this.props.errors}
         />;
+      registerClass = "active";
+      loginClass = "inactive";
     } else {
       form = <LoginForm
         login={this.props.login}
-        errors={this.props.errors}
         />;
+      loginClass = "active";
+      registerClass = "inactive";
     }
 
     return (
       <div className="session-tabs-box">
         <ul className="session-tabs">
-          <li className={this.state.register + " session-tab"}>
+          <li className={registerClass + " session-tab"}>
             <a href="#" onClick={this.handleClick}>Register</a>
           </li>
-          <li className={this.state.login + " session-tab"}>
+          <li className={loginClass + " session-tab"}>
             <a href="#" onClick={this.handleClick}>Login</a>
           </li>
         </ul>
         <div className="session-form-box">
+          { this.renderErrors() }
           {form}
         </div>
       </div>

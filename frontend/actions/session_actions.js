@@ -4,6 +4,7 @@ export const SessionConstants = {
   LOGOUT: "LOGOUT",
   RECEIVE_CURRENT_USER: "RECEIVE_CURRENT_USER",
   RECEIVE_ERRORS:   "RECEIVE_ERRORS",
+  CLEAR_ERRORS: "CLEAR_ERRORS"
 };
 
 export const signup = user => ({
@@ -28,4 +29,8 @@ export const receiveCurrentUser = user => ({
 export const receiveErrors = errors => ({
   type: SessionConstants.RECEIVE_ERRORS,
   errors
+});
+
+export const clearErrors = () => ({
+  type: SessionConstants.CLEAR_ERRORS
 });

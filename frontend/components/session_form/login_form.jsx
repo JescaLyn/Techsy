@@ -17,33 +17,12 @@ class LoginForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.signup({ user: this.state });
-  }
-
-  renderErrors(){
-    return(
-      <ul>
-        {this.props.errors.map( (error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
+    this.props.login({ user: this.state });
   }
 
   render() {
-    const checked = value => {
-      if (this.state.gender === value) {
-        return "checked";
-      } else {
-        return "";
-      }
-    };
-
     return (
       <form onSubmit={this.handleSubmit.bind(this)} className="session-form">
-        { this.renderErrors() }
 
         <label>Username:
           <input
@@ -62,7 +41,7 @@ class LoginForm extends React.Component {
           />
         </label>
 
-        <button>Login</button>
+        <button className="button">Login</button>
 
       </form>
     );

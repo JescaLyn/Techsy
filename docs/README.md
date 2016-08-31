@@ -36,16 +36,16 @@ Techsy is a web application inspired by Etsy built using Ruby on Rails and React
 
 **Objective:** Functioning rails project with front-end Authentication
 
-- [ ] New Rails project
-- [ ] User model/migration
-- [ ] Back end authentication (session/password)
-- [ ] StaticPages controller and root view
-- [ ] Webpack & react/redux modules
-- [ ] APIUtil to interact with the API
-- [ ] Redux cycle for frontend authentication
-- [ ] User signup/signin components
-- [ ] Blank landing component after signup/signin
-- [ ] Style signup/signin components
+- [X] New Rails project
+- [X] User model/migration
+- [X] Back end authentication (session/password)
+- [X] StaticPages controller and root view
+- [X] Webpack & react/redux modules
+- [X] APIUtil to interact with the API
+- [X] Redux cycle for frontend authentication
+- [X] User signup/signin components
+- [X] Blank landing component after signup/signin
+- [X] Style signup/signin components
 - [ ] Seed users
 - [ ] Review phase 1
 

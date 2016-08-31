@@ -1,9 +1,14 @@
 import { SessionConstants, receiveCurrentUser, receiveErrors }
   from '../actions/session_actions';
+import { closeSessionModal } from '../actions/modal_actions';
 import { login, signup, logout } from "../util/session_api_util";
 
 const SessionMiddleware = ({ getState, dispatch }) => next => action => {
-  const success = user => dispatch(receiveCurrentUser(user));
+  const success = user => {
+    dispatch(receiveCurrentUser(user));
+    dispatch(closeSessionModal());
+  };
+
   const error = xhr => {
     const errors = xhr.responseJSON;
     dispatch(receiveErrors(errors));

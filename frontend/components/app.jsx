@@ -1,12 +1,6 @@
 import React from 'react';
-import SessionForm from './session_form/session_form';
 import HeaderContainer from './header/header_container';
-import Modal from 'react-modal';
-
-document.addEventListener("DOMContentLoaded", () => {
-  Modal.setAppElement(document.body);
-});
-
+import SessionModalContainer from './session_modal/session_modal_container';
 
 class App extends React.Component {
 
@@ -17,25 +11,11 @@ class App extends React.Component {
     };
   }
 
-  openModal() {
-    this.setState({modalIsOpen: true});
-  }
-
-  closeModal() {
-    this.setState({modalIsOpen: false});
-  }
-
   render() {
     return (
       <div id="app">
-        <HeaderContainer openModal={this.openModal.bind(this)} />
-        <Modal
-          isOpen={this.state.modalIsOpen}
-          onRequestClose={this.closeModal.bind(this)}
-          className="modal" >
-
-          <SessionForm closeModal={this.closeModal.bind(this)} />
-        </Modal>
+        <HeaderContainer />
+        <SessionModalContainer />
         {this.props.children}
       </div>
     );
