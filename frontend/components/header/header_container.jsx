@@ -5,8 +5,8 @@ const mapStateToProps = state => ({
   currentUser: state.session.currentUser
 });
 
-const mapDispatchToProps = dispatch => ({
-
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  openModal: ownProps.openModal
 });
 
 export default connect(

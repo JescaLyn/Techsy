@@ -104,7 +104,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 20px;
+  height: 40px;
   padding: 10px;
   border-bottom: 1px solid #DADBD6;
 }
@@ -116,4 +116,20 @@ nav ul {
 
 nav ul li {
   padding: 10px;
+}
+
+.modal {
+  width: 580px;
+  height: auto;
+  margin: 0 auto;
+  position: relative;
+  top: 40px;
+}
+
+.overlay {
+  background: gray;
+}
+
+.logo {
+  font-size: 24px;
 }
