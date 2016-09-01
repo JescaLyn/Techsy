@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  username        :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  fname           :string
+#  lname           :string
+#  email           :string           not null
+#
+
 class User < ActiveRecord::Base
   attr_reader :password
 
@@ -6,6 +21,8 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true }
 
   after_initialize :ensure_session_token
+
+  has_many :listings
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
