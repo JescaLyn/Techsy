@@ -1,6 +1,6 @@
 class Api::ListingsController < ApplicationController
   def index
-    @listings = Listings.all
+    @listings = Listing.all
   end
 
   def show

@@ -7,7 +7,7 @@ const defaultState = Object.freeze({
 });
 
 const ListingReducer = (state = defaultState, action) => {
-  const newState = merge({}, defaultState);
+  let newState = merge({}, defaultState);
 
   switch (action.type) {
     case ListingsConstants.RECEIVE_LISTING:
@@ -17,6 +17,7 @@ const ListingReducer = (state = defaultState, action) => {
       newState.errors = action.errors;
       return newState;
     case ListingsConstants.CLEAR_ERRORS:
+      newState = merge({}, state);
       newState.errors = [];
       return newState;
     default:

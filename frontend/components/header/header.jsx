@@ -18,6 +18,7 @@ class Header extends React.Component {
       nav = <NavLoggedOut
         openModal={this.props.openModal}
         setSessionModalType={this.props.setSessionModalType}
+        guestLogin={this.props.guestLogin}
         />;
     }
 

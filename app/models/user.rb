@@ -22,7 +22,8 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
-  has_many :listings
+  has_one :shop
+  has_many :listings, through: :shop
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

@@ -54,16 +54,16 @@ Techsy is a web application inspired by Etsy built using Ruby on Rails and React
 **Objective:** Listings can be created, read, edited and destroyed through the API.
 
 - [X] Listing model
-- [ ] Seed database with a small amount of test data
+- [X] Seed database with a small amount of test data
 - [X] CRUD API for listings (ListingsController)
-- [ ] JBuilder views for listings
-- [ ] Listing components and respective Redux loops
-- [ ] ListingIndex
-- [ ] ListingIndexItem
+- [X] JBuilder views for listings
+- [X] Listing components and respective Redux loops
+- [X] ListingIndex
+- [X] ListingIndexItem
 - [ ] ListingDetail
 - [ ] ListingForm
 - [ ] Style listings components
-- [ ] Seed listings
+- [X] Seed listings
 
 ### Phase 3: Shopping Cart(2 day)
 

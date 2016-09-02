@@ -26,6 +26,11 @@ class NavLoggedOut extends React.Component {
             Login
           </li>
 
+          <li onClick={this.props.guestLogin}
+            className="login-link">
+            Guest Login
+          </li>
+
           <CartLink />
         </ul>
       </nav>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160901003753) do
+ActiveRecord::Schema.define(version: 20160901164712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,10 +24,25 @@ ActiveRecord::Schema.define(version: 20160901003753) do
     t.string   "image_url"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "user_id",     null: false
+    t.integer  "shop_id",     null: false
+    t.string   "subtitle",    null: false
   end
 
-  add_index "listings", ["user_id"], name: "index_listings_on_user_id", unique: true, using: :btree
+  add_index "listings", ["shop_id"], name: "index_listings_on_shop_id", using: :btree
+
+  create_table "shops", force: :cascade do |t|
+    t.string   "name",                        null: false
+    t.string   "description"
+    t.string   "country",                     null: false
+    t.string   "currency",    default: "USD"
+    t.string   "kind",                        null: false
+    t.string   "image_url"
+    t.integer  "user_id",                     null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "shops", ["user_id"], name: "index_shops_on_user_id", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false
