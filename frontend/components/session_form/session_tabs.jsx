@@ -8,8 +8,8 @@ class SessionTabs extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(event) {
-    if (event.target.text === "Register") {
+  handleClick(e) {
+    if (e.target.text === "Register") {
       this.props.setModalRegister();
     } else {
       this.props.setModalLogin();

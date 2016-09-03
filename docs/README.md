@@ -60,9 +60,9 @@ Techsy is a web application inspired by Etsy built using Ruby on Rails and React
 - [X] Listing components and respective Redux loops
 - [X] ListingIndex
 - [X] ListingIndexItem
-- [ ] ListingDetail
-- [ ] ListingForm
-- [ ] Style listings components
+- [X] ListingDetail
+- [X] ListingForm
+- [X] Style listings components
 - [X] Seed listings
 
 ### Phase 3: Shopping Cart(2 day)

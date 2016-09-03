@@ -43,6 +43,6 @@ class Api::ListingsController < ApplicationController
   def listing_params
     params
       .require(:listing)
-      .permit(:title, :price, :quantity, :description, :image_url)
+      .permit(:title, :subtitle, :price, :quantity, :description, :image_url, :shop_id)
   end
 end

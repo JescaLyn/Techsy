@@ -1,3 +1,273 @@
 // Place all the styles related to the api::listings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.listing-index {
+  font-size: 1rem;
+  margin: 0 auto;
+  width: 100em;
+}
+
+.listing-siblings-index {
+  margin: 0 auto;
+  font-size: 5px;
+  width: 70em;
+}
+
+.listing-item {
+  width: 30em;
+  height: 30em;
+  float: left;
+  margin: 1.5em;
+}
+
+.listing-thumb {
+  position: relative;
+  width: 100%;
+  height: 24em;
+}
+
+.listing-thumb-img {
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}
+
+.listing-thumb-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  padding: 2.5em;
+  box-sizing: border-box;
+  border-top-left-radius: 0.3em;
+  border-top-right-radius: 0.3em;
+  background: white;
+  opacity: 0;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  font-size: 16px;
+  background: var(--light-gray-background);
+}
+
+
+.listing-thumb-overlay:hover {
+  opacity: 0.85;
+}
+
+.listing-card {
+  height: 5em;
+  padding: 1em;
+  background: white;
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.listing-card span {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.6em;
+}
+
+.listing-card p {
+  font-size: 1.6rem;
+}
+
+.listing-index-price {
+  color: var(--price-color);
+}
+
+.listing-index-shop-name {
+  color: var(--grayed-text);
+}
+
+.splash:after {
+  content: "";
+  height: 4em;
+  display: block;
+}
+
+.listing-detail {
+  width: 100em;
+  margin: 0 auto;
+  font-size: 1rem;
+}
+
+.listing-detail-shop-banner {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 3em;
+}
+
+.listing-detail-shop-logo {
+  margin-right: 3em;
+  width: 8em;
+  height: 8em;
+}
+
+.listing-detail-shop-name {
+  font-size: 3em;
+}
+
+.listing-detail-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.listing-detail-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 60em;
+}
+
+.listing-detail-tabs-container {
+  margin: 3em 0;
+}
+
+.listing-detail-tabs {
+  margin-top: 20px;
+  display: flex;
+}
+
+.listing-detail-tabs li {
+  font-size: 1.6em;
+  width: 100px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.listing-detail-tabs li:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.listing-description {
+  font-size: 1.6em;
+  background: white;
+  padding: 20px;
+  line-height: 1.3em;
+}
+
+.listing-detail-aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 36em;
+}
+
+.listing-detail-overview {
+  font-size: 1.6rem;
+  background: white;
+  padding: 1.5rem;
+  border: thin solid var(--light-border-color);
+  margin-bottom: 3rem;
+}
+
+.listing-big-text {
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+
+.listing-detail-overview p {
+  margin-bottom: 1.5rem;
+}
+
+.listing-detail-overview button {
+  display: block;
+  width: 100%;
+  background: var(--button-1-color);
+  padding: 10px;
+  text-align: center;
+  margin-top: 2rem;
+  box-sizing: border-box;
+}
+
+.small-shop-logo {
+  width: 6em;
+  height: 6em;
+}
+
+.listing-detail-shop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+}
+
+.listing-form {
+  width: 900px;
+  background: white;
+  margin: 0 auto;
+  padding: 50px;
+  font-size: 18px;
+  margin-bottom: 40px;
+  border-radius: 5px;
+}
+
+.listing-form-text {
+  display: block;
+  border: 1px solid var(--text-border-top-left);
+  border-right: 1px solid var(--text-border-bottom-right);
+  border-bottom: 1px solid var(--text-border-bottom-right);
+  margin: 3px 0 30px 0;
+  padding: 6px;
+  width: 100%;
+}
+
+.listing-form textarea {
+  height: 150px;
+}
+
+.listing-form button {
+  margin: 0 auto;
+}
+
+.listing-form-first-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.listing-form-title {
+  width: 400px;
+}
+
+.listing-form-short {
+  width: 200px;
+}
+
+.photoAdd {
+  border: thin solid var(--light-border-color);
+  padding: 5px;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.photoAdd:hover {
+  cursor: pointer;
+  border: thin solid var(--button-1-color);
+}
+
+.photoAddInner {
+  background: var(--add-photo);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

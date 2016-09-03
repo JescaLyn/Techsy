@@ -21,4 +21,10 @@ class Listing < ActiveRecord::Base
 
   belongs_to :shop
   has_one :user, through: :shop
+
+  def sibling_listings
+    Listing
+      .where("shop_id = ?", self.shop_id)
+      .where("id != ?", self.id)
+  end
 end

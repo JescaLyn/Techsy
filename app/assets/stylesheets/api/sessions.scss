@@ -1,3 +1,85 @@
 // Place all the styles related to the API::Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.session-tabs-box {
+  width: 580px;
+  box-sizing: border-box;
+  background: var(--light-background);
+  border: 1px solid var(--light-border-color);
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+.session-tabs {
+  margin-top: 20px;
+  margin-left: 40px;
+  display: flex;
+  border-left: 1px solid var(--light-border-color);
+}
+
+.session-tab {
+  width: 80px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid var(--light-border-color);
+  border-right: 1px solid var(--light-border-color);
+  z-index: 1;
+}
+
+.session-tab:hover {
+  cursor: pointer;
+}
+
+.inactive {
+  background: var(--header-background);
+  border-bottom: 1px solid var(--light-border-color);
+  color: var(--link-text);
+}
+
+.active {
+  border-bottom: 1px solid white;
+  background: white;
+}
+
+.inactive:hover {
+  text-decoration: underline;
+}
+
+.session-form-box {
+  position: relative;
+  top: -1px;
+  display:block;
+  background: white;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top: 1px solid var(--light-border-color);
+  padding-left: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.text {
+  display: block;
+  width: 230px;
+  border: 1px solid var(--text-border-top-left);
+  border-right: 1px solid var(--text-border-bottom-right);
+  border-bottom: 1px solid var(--text-border-bottom-right);
+  margin: 3px 0px;
+  padding: 6px;
+}
+
+.session-form label {
+  display: block;
+  padding: 6px 0px;
+}
+
+.modal {
+  width: 580px;
+  height: auto;
+  margin: 0 auto;
+  position: relative;
+  top: 40px;
+}

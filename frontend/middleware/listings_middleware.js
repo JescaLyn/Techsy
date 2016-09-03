@@ -26,7 +26,7 @@ const ListingsMiddleware = ({ getState, dispatch }) => next => action => {
       API.deleteListing(action.listingId, success, error);
       return next(action);
     case ListingsConstants.CREATE_LISTING:
-      API.updateListing(action.listing, success, error);
+      API.createListing(action.listing, success, error);
       return next(action);
     default:
       next(action);

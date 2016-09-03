@@ -75,7 +75,7 @@ Listing.create([
     price: 25.00,
     quantity: 10,
     description: "The most striking thing you see is that it is the size of a 16 pin DIP, and unlike other processor boards, it is designed from the start to be compatible with the breadboards that are commonly used by electronic hobbyists, robotics projects, and oh so many hackaday projects. The pins are directly designed to work with these breadboards, and unlike the usual pin strips found on other processor boards, they plug in easily to the breadboard, and don’t damage it. Unlike other processor boards that are far larger, OSHChip can be plugged into the middle two rows of a breadboard, and it doesn’t cover the remaining holes for your interconnecting wires. The Processor/Radio SOC (System On Chip) is made by Nordic Semiconductor: nRF51822-CFAC-A0 (which is the most advanced member of the nRF51 family of products).",
-    image_url: "http://res.cloudinary.com/dzikfml7y/image/upload/c_fill,g_auto,w_300/v1472765631/osh_chip_xme1qg.jpg"
+    image_url: "http://res.cloudinary.com/dzikfml7y/image/upload/c_scale,w_1000/v1472765631/osh_chip_xme1qg.jpg"
   },
   {
     title: "3D Printable Robot Arm Design",
@@ -90,7 +90,7 @@ Industrial robots are expensive and dangerous, thus not suitable for use at home
 This printable robot can be built and used by everyone.
 This is a great design to build robot arms for disabled persons, to manage their daily needs and increase independence.
 The arm is remote controlled; you could even use the robot to open your door if you forgot your keys!",
-    image_url: "http://res.cloudinary.com/dzikfml7y/image/upload/c_scale,w_300/v1472765602/robot_arm_x9dr4q.jpg"
+    image_url: "http://res.cloudinary.com/dzikfml7y/image/upload/c_scale,w_1000/v1472765602/robot_arm_x9dr4q.jpg"
   },
   {
     title: "Sugarcube - a tactile music controller",
@@ -99,7 +99,7 @@ The arm is remote controlled; you could even use the robot to open your door if 
     price: 79.00,
     quantity: 3,
     description: "This project is a portable, Arduino-powered, grid-based MIDI controller that boots up into a variety of apps to do lots of things with sound. It has 16 backlit buttons, used as both inputs and outputs to give the controller some visual feedback. 2 potentiometers give analog control, depending on the app the pots are assigned to tempo, MIDI velocity, pitch, and scrolling (making the available grid space larger than 4x4). An x/y accelerometer and an x/y gyroscope add some playful, gestural control to the device; most of the apps implement a 'shake to erase' control and several respond to tilt in various ways. It boots up into 7 different apps (described below), though it has the potential to boot up into 16 total. This device is primarily a MIDI controller, but I've also written an app that allows you to pull the button and analog data into MaxMSP and to control audio.",
-    image_url: "http://res.cloudinary.com/dzikfml7y/image/upload/c_fill,h_240,w_300/v1472765592/sugar_cube_nwivst.jpg"
+    image_url: "http://res.cloudinary.com/dzikfml7y/image/upload/v1472765592/sugar_cube_nwivst.jpg"
   },
   {
     title: "Medicycle - Urban Responder",
@@ -112,7 +112,7 @@ The Medicycle's use of revolutionary technology allows our emergency response te
 The Medicycle is a self balancing twin tire unicycle that has been congfigured as a high tech first response vehicle, it uses an Arduino Mega in conjunction with an inertial measurement unit to keep itself balanced.
 Useful information such as battery condition or even somebody's pulse can monitored with the heads up display which is wirelessly linked to the unicycle.
 Panniers can be fitted to the Medicycle giving it the ability to carry additional medical supplies and equipment.",
-    image_url: "http://res.cloudinary.com/dzikfml7y/image/upload/c_fill,h_240,w_300/v1472765586/medi_cycle_mwaxlo.jpg"
+    image_url: "http://res.cloudinary.com/dzikfml7y/image/upload/v1472765586/medi_cycle_mwaxlo.jpg"
   },
   {
     title: "8x8x8 Blue LED Cube",
@@ -124,7 +124,7 @@ Panniers can be fitted to the Medicycle giving it the ability to carry additiona
 Most LED cubes I've seen are limited by the LED lead length. I wanted my cube to be as large as possible while still producing smooth animations. I settled on 4cm between leds, resulting in a 28 cm (11 inch) cube.
 
 I also wanted the cube to be more interactive, so I used the remaining six ports on the Arduino to handle three touch sensors (thanks to Paul Badger for his awesome CapSense library) and two potentiometers. ",
-    image_url: "http://res.cloudinary.com/dzikfml7y/image/upload/c_fill,g_auto,h_240,w_300/v1472765588/led_cube_wrtgly.jpg"
+    image_url: "http://res.cloudinary.com/dzikfml7y/image/upload/v1472765588/led_cube_wrtgly.jpg"
   },
   {
     title: "Animatronic 3D printed Bird",
@@ -135,6 +135,6 @@ I also wanted the cube to be more interactive, so I used the remaining six ports
     description: "The Mechanical Bird Armature is designed to have the ability to fit the profile of many small birds, ranging from Parrots, Cockatoos, Owls, Peregrine Falcons, Hawks, and any other bird of the same profile.
 This kind of device can then be used as a Bird Lure to help aid in the research into raptors, or as a Bird Decoy to help solve pest problems in and around city's.
 Im also making these as animatronic film props as well as for use in TV commercials and programs, and theatre props, along with Attractions, exhibitions and maybe even just a party piece to intrigue your guests.",
-    image_url: "http://res.cloudinary.com/dzikfml7y/image/upload/c_fill,g_auto,h_240,w_300/v1472765582/animatronic_owl_qzguwo.jpg"
+    image_url: "http://res.cloudinary.com/dzikfml7y/image/upload/v1472765582/animatronic_owl_qzguwo.jpg"
   }
 ])
