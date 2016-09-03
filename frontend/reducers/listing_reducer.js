@@ -7,7 +7,6 @@ const defaultState = Object.freeze({
 });
 
 const ListingReducer = (state = defaultState, action) => {
-  console.log(state);
   let newState = merge({}, defaultState);
 
   switch (action.type) {

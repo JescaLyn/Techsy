@@ -27,7 +27,7 @@ class SignupForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit.bind(this)} className="session-form">
 
-        <label>First Name:
+        <label>First Name
           <input
             type="text"
             className="text"
@@ -36,7 +36,7 @@ class SignupForm extends React.Component {
           />
         </label>
 
-        <label>Last Name:
+        <label>Last Name
           <input
             type="text"
             className="text"
@@ -45,7 +45,7 @@ class SignupForm extends React.Component {
           />
         </label>
 
-        <label>Email:
+        <label>Email
           <input
             type="text"
             className="text"
@@ -54,7 +54,7 @@ class SignupForm extends React.Component {
           />
         </label>
 
-        <label>Password:
+        <label>Password
           <input
             type="password"
             className="text"
@@ -62,11 +62,11 @@ class SignupForm extends React.Component {
           />
         </label>
 
-        <label>Confirm Password:
+        <label>Confirm Password
           <input type="password" className="text" />
         </label>
 
-        <label>Username:
+        <label>Username
           <input
             type="text"
             className="text"

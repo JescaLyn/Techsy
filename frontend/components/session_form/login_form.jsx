@@ -24,7 +24,7 @@ class LoginForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit.bind(this)} className="session-form">
 
-        <label>Username:
+        <label>Username
           <input
             type="text"
             className="text"
@@ -33,7 +33,7 @@ class LoginForm extends React.Component {
             />
         </label>
 
-        <label>Password:
+        <label>Password
           <input
             type="password"
             className="text"

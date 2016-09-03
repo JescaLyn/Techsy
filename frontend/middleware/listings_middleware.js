@@ -1,9 +1,15 @@
 import { ListingsConstants, receiveListings, receiveListing, receiveErrors }
   from '../actions/listing_actions';
 import * as API from "../util/listing_api_util";
+import { hashHistory } from 'react-router';
 
 const ListingsMiddleware = ({ getState, dispatch }) => next => action => {
   let success = listing => dispatch(receiveListing(listing));
+  let allListingsSuccess = listings => dispatch(receiveListings(listings));
+  let createListingSuccess = listing => {
+    dispatch(receiveListing(listing));
+    hashHistory.push(`/listings/${listing.id}`);
+  };
 
   const error = xhr => {
     const errors = xhr.responseJSON;
@@ -15,8 +21,7 @@ const ListingsMiddleware = ({ getState, dispatch }) => next => action => {
       API.fetchListing(action.listingId, success, error);
       return next(action);
     case ListingsConstants.REQUEST_LISTINGS:
-      success = listings => dispatch(receiveListings(listings));
-      API.fetchListings(success, error);
+      API.fetchListings(allListingsSuccess, error);
       return next(action);
     case ListingsConstants.UPDATE_LISTING:
       API.updateListing(action.listing, success, error);
@@ -26,7 +31,7 @@ const ListingsMiddleware = ({ getState, dispatch }) => next => action => {
       API.deleteListing(action.listingId, success, error);
       return next(action);
     case ListingsConstants.CREATE_LISTING:
-      API.createListing(action.listing, success, error);
+      API.createListing(action.listing, createListingSuccess, error);
       return next(action);
     default:
       next(action);

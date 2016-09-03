@@ -17,15 +17,15 @@ ActiveRecord::Schema.define(version: 20160901164712) do
   enable_extension "plpgsql"
 
   create_table "listings", force: :cascade do |t|
-    t.string   "title",       null: false
-    t.float    "price",       null: false
-    t.integer  "quantity",    null: false
-    t.text     "description", null: false
+    t.string   "title",                               null: false
+    t.decimal  "price",       precision: 8, scale: 2, null: false
+    t.integer  "quantity",                            null: false
+    t.text     "description",                         null: false
     t.string   "image_url"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "shop_id",     null: false
-    t.string   "subtitle",    null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "shop_id",                             null: false
+    t.string   "subtitle",                            null: false
   end
 
   add_index "listings", ["shop_id"], name: "index_listings_on_shop_id", using: :btree

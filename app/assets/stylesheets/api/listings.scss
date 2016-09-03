@@ -208,12 +208,13 @@
 }
 
 .listing-form {
-  width: 900px;
+  width: 800px;
   background: white;
   margin: 0 auto;
-  padding: 50px;
+  padding: 30px;
   font-size: 18px;
   margin-bottom: 40px;
+  border: thin solid var(--light-border-color);
   border-radius: 5px;
 }
 
@@ -225,6 +226,8 @@
   margin: 3px 0 30px 0;
   padding: 6px;
   width: 100%;
+  background: #f7f7f6;
+  font-size: 14px;
 }
 
 .listing-form textarea {
@@ -241,11 +244,11 @@
 }
 
 .listing-form-title {
-  width: 400px;
+  width: 480px;
 }
 
 .listing-form-short {
-  width: 200px;
+  width: 120px;
 }
 
 .photoAdd {

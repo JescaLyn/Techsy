@@ -63,7 +63,7 @@ class ListingForm extends React.Component {
     if (error) {
       this.props.receiveErrors([error]);
     } else {
-      this.setState({ image_url: result.url });
+      this.setState({ image_url: result[0].url });
     }
   }
 
@@ -77,13 +77,13 @@ class ListingForm extends React.Component {
   render() {
     return (
       <div className="listing-form-page">
-        <h1>New Listing</h1>
+        <h1>Add a new listing</h1>
 
         <form onSubmit={this.handleSubmit} className="listing-form">
           {this.renderErrors()}
 
           <div className="listing-form-first-row">
-            <label>Product Title:
+            <label>Product Title
               <input
                 type="text"
                 className="listing-form-text listing-form-title"
@@ -93,7 +93,7 @@ class ListingForm extends React.Component {
               />
             </label>
 
-            <label>Price:
+            <label>Price
               $<input
                 type="number"
                 className="listing-form-text listing-form-short"
@@ -101,11 +101,11 @@ class ListingForm extends React.Component {
                 step="0.01"
                 value={this.state.price}
                 placeholder="0.00"
-                onChange={this.setTwoNumberDecimal}
+                onChange={this.update.bind(this, "price")}
               />
             </label>
 
-            <label>Quantity in Stock:
+            <label>Quantity in Stock
               <input
                 type="number"
                 className="listing-form-text listing-form-short"
@@ -115,7 +115,7 @@ class ListingForm extends React.Component {
             </label>
           </div>
 
-          <label>140 Character Summary:
+          <label>140 Character Summary
             <input
               type="text"
               className="listing-form-text"
@@ -125,7 +125,7 @@ class ListingForm extends React.Component {
             />
           </label>
 
-          <label>Description:
+          <label>Description
             <textarea
               className="listing-form-text"
               value={this.state.description}
