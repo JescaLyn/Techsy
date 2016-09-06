@@ -18,7 +18,8 @@ class SessionModal extends React.Component {
       <Modal
         isOpen={this.props.open}
         onRequestClose={this.closeModal.bind(this)}
-        className="modal" >
+        className="modal"
+        overlayClassName="overlay">
         <SessionTabsContainer />
       </Modal>
     );

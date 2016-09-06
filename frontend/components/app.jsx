@@ -15,8 +15,8 @@ class App extends React.Component {
     return (
       <div id="app">
         <HeaderContainer />
-        <SessionModalContainer />
         {this.props.children}
+        <SessionModalContainer />
       </div>
     );
   }
