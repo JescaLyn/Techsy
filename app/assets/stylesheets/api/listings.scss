@@ -67,7 +67,7 @@
 
 .listing-card {
   height: 5em;
-  padding: 1em;
+  padding: 0.7em;
   background: white;
   border-bottom-left-radius: 0.5em;
   border-bottom-right-radius: 0.5em;
@@ -193,16 +193,6 @@
 .listing-detail-quantity {
   margin-top: 1rem;
   width: 8rem;
-}
-
-.listing-detail-overview button {
-  display: block;
-  width: 100%;
-  background: var(--button-1-color);
-  padding: 10px;
-  text-align: center;
-  margin-top: 2rem;
-  box-sizing: border-box;
 }
 
 .small-shop-logo {

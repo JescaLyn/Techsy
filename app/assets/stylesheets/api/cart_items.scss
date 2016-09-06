@@ -1,3 +1,89 @@
 // Place all the styles related to the API::CartItems controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.cart-page {
+  width: 100em;
+  font-size: 1rem;
+  margin: 0 auto;
+}
+
+.cart-header {
+  border: none;
+  background: transparent;
+  margin-bottom: 1rem;
+  padding: 1.5rem;
+}
+
+.cart-header h1 {
+  padding: 0;
+}
+
+.cart-header button {
+  background: var(--button-2-color);
+  font-size: 1.4rem;
+  width: 15rem;
+  height: 3rem;
+}
+
+.cart-header button:hover {
+  background: var(--button-2-hover);
+}
+
+.cart {
+  background: white;
+  border: 1px solid var(--light-border-color);
+  width: 100%;
+  border-radius: 5px;
+  padding: 2em;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.cart-items {
+  width: 61%;
+  box-sizing: border-box;
+  border-right: 1px solid var(--light-border-color);
+}
+
+.cart-item {
+  display: flex;
+  margin-bottom: 1rem;
+  padding: 2rem;
+  font-size: 1.6rem;
+}
+
+.cart-item-details {
+  color: gray;
+}
+
+.cart-item-title {
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: black;
+}
+
+.cart-item-img {
+  width: 200px;
+}
+
+.cart-calculations {
+  width: 35%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+  line-height: 2em;
+}
+
+.grand-total {
+  border-top: 1px solid var(--light-border-color);
+  margin-top: 5px;
+  padding-top: 5px;
+}
+
+.cart-calculations p {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.6rem;
+}

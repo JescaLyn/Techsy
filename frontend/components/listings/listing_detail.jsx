@@ -119,7 +119,7 @@ class ListingDetail extends React.Component {
               </label>
 
               <button
-                className="button"
+                className="button full-width-button"
                 onClick={this.addToCart}>Add to cart</button>
             </section>
 

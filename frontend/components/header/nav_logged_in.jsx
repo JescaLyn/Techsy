@@ -13,7 +13,7 @@ const NavLoggedOut = ({ openModal, currentUser, logout }) => {
   return (
     <nav>
       <ul>
-        <li className="nav-link">
+        <li className="login-link">
           <button onClick={logout}>Logout</button>
         </li>
 
