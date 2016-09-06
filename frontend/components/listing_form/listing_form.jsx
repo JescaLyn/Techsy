@@ -10,11 +10,10 @@ class ListingForm extends React.Component {
       price: "",
       quantity: "",
       image_url: "",
-      shop_id: "1"
+      shop_id: this.props.shopId
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.setTwoNumberDecimal = this.setTwoNumberDecimal.bind(this);
-    this.openCloudinaryWidget = this.openCloudinaryWidget.bind(this);
     this.handleImageUpload = this.handleImageUpload.bind(this);
     this.openCloudinaryWidget = this.openCloudinaryWidget.bind(this);
   }

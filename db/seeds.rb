@@ -45,7 +45,7 @@ Shop.create ([
     country: "United States",
     currency: "USD",
     kind: "part time",
-    image_url: "http://res.cloudinary.com/dzikfml7y/image/upload/v1472754771/hi-tech-planet_urceeb.jpg"
+    image_url: "http://res.cloudinary.com/dzikfml7y/image/upload/c_scale,w_300/v1472754771/hi-tech-planet_urceeb.jpg"
   },
   {
     name: "Tech Revolution",
@@ -54,7 +54,7 @@ Shop.create ([
     country: "United States",
     currency: "USD",
     kind: "full time",
-    image_url: "http://res.cloudinary.com/dzikfml7y/image/upload/v1472754768/infinity_hqiufg.jpg"
+    image_url: "http://res.cloudinary.com/dzikfml7y/image/upload/c_scale,w_300/v1472754768/infinity_hqiufg.jpg"
   },
   {
     name: "Axiom",
@@ -63,7 +63,7 @@ Shop.create ([
     country: "United States",
     currency: "USD",
     kind: "part time",
-    image_url: "http://res.cloudinary.com/dzikfml7y/image/upload/v1472754768/axiom4_hok57q.jpg"
+    image_url: "http://res.cloudinary.com/dzikfml7y/image/upload/c_scale,w_300/v1472754768/axiom4_hok57q.jpg"
   }
 ])
 
@@ -136,5 +136,28 @@ I also wanted the cube to be more interactive, so I used the remaining six ports
 This kind of device can then be used as a Bird Lure to help aid in the research into raptors, or as a Bird Decoy to help solve pest problems in and around city's.
 Im also making these as animatronic film props as well as for use in TV commercials and programs, and theatre props, along with Attractions, exhibitions and maybe even just a party piece to intrigue your guests.",
     image_url: "http://res.cloudinary.com/dzikfml7y/image/upload/v1472765582/animatronic_owl_qzguwo.jpg"
+  }
+])
+
+CartItem.create([
+  {
+    user_id: 2,
+    listing_id: 6,
+    quantity: 3
+  },
+  {
+    user_id: 2,
+    listing_id: 4,
+    quantity: 1
+  },
+  {
+    user_id: 1,
+    listing_id: 6,
+    quantity: 3
+  },
+  {
+    user_id: 1,
+    listing_id: 4,
+    quantity: 1
   }
 ])

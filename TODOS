@@ -1,8 +1,8 @@
 LISTING FORM NOT WORKING (image)
 
-Inline errors
+Inline errors on forms
 Functional Confirm password
-Functional Item Detail page
+Functional Listing Detail page
 Change shop currency to match currency on create and show pages
 Change form Shop ID
 Styling, styling
@@ -10,3 +10,7 @@ Make Modal not redirect to splash
 Change variables to Sass
 Look up svg cart icon
 140 character countdown on New Listing Page
+Quantity on ListingDetail page reflects actual quantity
+When unsuccessfully logging in on Item Detail page, the listing disappears
+Check availability on shop name/username
+Delete frontend currentUser cart?

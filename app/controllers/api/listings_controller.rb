@@ -1,6 +1,6 @@
 class Api::ListingsController < ApplicationController
   def index
-    @listings = Listing.all
+    @listings = Listing.all.includes(:shop)
   end
 
   def show

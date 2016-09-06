@@ -1,14 +1,18 @@
 import React from 'react';
 import ListingSiblingsIndex from './listing_siblings_index';
+import Select from 'react-select';
 
 class ListingDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       itemDetails: "active",
-      reviews: "inactive"
+      reviews: "inactive",
+      quantity: "1"
     };
     this.handleTabClick = this.handleTabClick.bind(this);
+    this.updateQuantity = this.updateQuantity.bind(this);
+    this.addToCart = this.addToCart.bind(this);
   }
 
   handleTabClick(e) {
@@ -25,6 +29,26 @@ class ListingDetail extends React.Component {
     }
   }
 
+  updateQuantity(option) {
+    this.setState({ quantity: option.value });
+  }
+
+  addToCart() {
+    const listing = this.props.listing;
+    const cartItem = {
+      listing_id: listing.id,
+      listing_image_url: listing.image_url,
+      listing_price: listing.price,
+      listing_subtitle: listing.subtitle,
+      listing_title: listing.title,
+      quantity: this.state.quantity,
+      shop_id: listing.shop_id,
+      shop_logo: listing.shop_logo,
+      shop_name: listing.shop_name
+    };
+    this.props.updateCartItem(cartItem);
+  }
+
   render() {
     const listing = this.props.listing;
     let listingSiblings = [];
@@ -33,6 +57,13 @@ class ListingDetail extends React.Component {
         listings={listing.siblings}
         shopName={listing.shop_name} />;
     }
+
+    const quantityOptions = Array(this.props.listing.quantity)
+      .fill()
+      .map((_, i) => ({
+        value: `${i + 1}`,
+        label: `${i + 1}`
+      }));
 
     return (
       <main className="listing-detail">
@@ -76,15 +107,20 @@ class ListingDetail extends React.Component {
               <p className="listing-big-text">{listing.title}</p>
               <p className="listing-big-text">${listing.price}</p>
               <p>{listing.subtitle}</p>
-              <label>Quantity:&nbsp;
-                <select>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                </select>
+              <label>Quantity
+                <Select
+                  className="listing-detail-quantity"
+                  value={this.state.quantity}
+                  options={quantityOptions}
+                  onChange={this.updateQuantity}
+                  searchable={false}
+                  clearable={false}
+                />
               </label>
 
-              <button className="button">Add to cart</button>
+              <button
+                className="button"
+                onClick={this.addToCart}>Add to cart</button>
             </section>
 
             <section className="listing-detail-shop cf">

@@ -1,3 +1,8 @@
 json.partial! "/api/listings/listing", listing: @listing
 json.shop_image_url @listing.shop.image_url
-json.siblings @listing.sibling_listings
+json.shop_id @listing.shop_id
+json.siblings do
+  json.array! @listing.sibling_listings do |sibling|
+    json.partial! "api/listings/listing", listing: sibling
+  end
+end

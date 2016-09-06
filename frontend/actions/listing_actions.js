@@ -1,4 +1,4 @@
-export const ListingsConstants = {
+export const ListingConstants = {
   REQUEST_LISTINGS: "REQUEST_LISTINGS",
   REQUEST_LISTING: "REQUEST_LISTING",
   RECEIVE_LISTINGS: "RECEIVE_LISTINGS",
@@ -11,44 +11,44 @@ export const ListingsConstants = {
 };
 
 export const requestListing = listingId => ({
-  type: ListingsConstants.REQUEST_LISTING,
+  type: ListingConstants.REQUEST_LISTING,
   listingId
 });
 
 export const requestListings = () => ({
-  type: ListingsConstants.REQUEST_LISTINGS
+  type: ListingConstants.REQUEST_LISTINGS
 });
 
 export const receiveListing = listing => ({
-  type: ListingsConstants.RECEIVE_LISTING,
+  type: ListingConstants.RECEIVE_LISTING,
   listing
 });
 
 export const receiveListings = listings => ({
-  type: ListingsConstants.RECEIVE_LISTINGS,
+  type: ListingConstants.RECEIVE_LISTINGS,
   listings
 });
 
 export const updateListing = listing => ({
-  type: ListingsConstants.UPDATE_LISTING,
+  type: ListingConstants.UPDATE_LISTING,
   listing
 });
 
 export const deleteListing = listingId => ({
-  type: ListingsConstants.DELETE_LISTING,
+  type: ListingConstants.DELETE_LISTING,
   listingId
 });
 
 export const createListing = listing => ({
-  type: ListingsConstants.CREATE_LISTING,
+  type: ListingConstants.CREATE_LISTING,
   listing
 });
 
 export const receiveErrors = errors => ({
-  type: ListingsConstants.RECEIVE_ERRORS,
+  type: ListingConstants.RECEIVE_ERRORS,
   errors
 });
 
 export const clearErrors = () => ({
-  type: ListingsConstants.CLEAR_ERRORS
+  type: ListingConstants.CLEAR_ERRORS
 });

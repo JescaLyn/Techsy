@@ -22,6 +22,10 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
+  has_many :cart_items, dependent: :destroy
+  has_many :cart_listings,
+    through: :cart_items,
+    source: :listing
   has_one :shop
   has_many :listings, through: :shop
 

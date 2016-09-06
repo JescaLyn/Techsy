@@ -9,9 +9,9 @@ const ListingIndexItem = ({ listing, router }) => (
           src={listing.image_url}
           className="listing-thumb-img"
         />
-        <p className="listing-thumb-overlay">
-          {listing.subtitle}
-        </p>
+        <div className="listing-thumb-overlay">
+          <p>{listing.subtitle}</p>
+        </div>
       </div>
       <div className="listing-card">
         <p>{listing.title}</p>

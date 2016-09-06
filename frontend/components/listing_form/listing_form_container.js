@@ -3,7 +3,8 @@ import ListingForm from './listing_form';
 import { createListing, receiveErrors } from '../../actions/listing_actions';
 
 const mapStateToProps = state => ({
-  errors: state.listing.errors
+  errors: state.listing.errors,
+  shopId: state.shop.currentShop.id
 });
 
 const mapDispatchToProps = dispatch => ({

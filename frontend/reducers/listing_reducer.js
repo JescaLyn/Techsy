@@ -1,4 +1,4 @@
-import { ListingsConstants } from '../actions/listing_actions';
+import { ListingConstants } from '../actions/listing_actions';
 import { merge } from 'lodash';
 
 const defaultState = Object.freeze({
@@ -10,13 +10,13 @@ const ListingReducer = (state = defaultState, action) => {
   let newState = merge({}, defaultState);
 
   switch (action.type) {
-    case ListingsConstants.RECEIVE_LISTING:
+    case ListingConstants.RECEIVE_LISTING:
       newState.currentListing = action.listing;
       return newState;
-    case ListingsConstants.RECEIVE_ERRORS:
+    case ListingConstants.RECEIVE_ERRORS:
       newState.errors = action.errors;
       return newState;
-    case ListingsConstants.CLEAR_ERRORS:
+    case ListingConstants.CLEAR_ERRORS:
       newState = merge({}, state);
       newState.errors = [];
       return newState;

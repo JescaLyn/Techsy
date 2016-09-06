@@ -4,6 +4,8 @@ import App from '../app';
 import Splash from '../splash/splash';
 import ListingDetailContainer from '../listings/listing_detail_container';
 import ListingFormContainer from '../listing_form/listing_form_container';
+import ShopFormContainer from '../shop_form/shop_form_container';
+import CartContainer from '../cart/cart_container';
 
 class AppRouter extends React.Component {
 
@@ -31,6 +33,10 @@ class AppRouter extends React.Component {
           <Route
             path="/sell-on-techsy"
             component={ ListingFormContainer }
+          />
+          <Route
+            path="/cart"
+            component={ CartContainer }
           />
         </Route>
       </Router>

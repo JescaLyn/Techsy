@@ -4,7 +4,7 @@
 #
 #  id          :integer          not null, primary key
 #  title       :string           not null
-#  price       :float            not null
+#  price       :decimal(8, 2)    not null
 #  quantity    :integer          not null
 #  description :text             not null
 #  image_url   :string
@@ -21,10 +21,19 @@ class Listing < ActiveRecord::Base
 
   belongs_to :shop
   has_one :user, through: :shop
+  has_many :cart_items, dependent: :destroy
 
   def sibling_listings
     Listing
       .where("shop_id = ?", self.shop_id)
-      .where("id != ?", self.id)
+      # .where("id != ?", self.id)
+  end
+
+  def price_reset
+    if self.price.to_s.split(".").last.length < 2
+      return self.price.to_s << "0"
+    end
+
+    self.price
   end
 end

@@ -1,4 +1,4 @@
-import { ListingsConstants, receiveListings, receiveListing, receiveErrors }
+import { ListingConstants, receiveListings, receiveListing, receiveErrors }
   from '../actions/listing_actions';
 import * as API from "../util/listing_api_util";
 import { hashHistory } from 'react-router';
@@ -17,20 +17,20 @@ const ListingsMiddleware = ({ getState, dispatch }) => next => action => {
   };
 
   switch (action.type) {
-    case ListingsConstants.REQUEST_LISTING:
+    case ListingConstants.REQUEST_LISTING:
       API.fetchListing(action.listingId, success, error);
       return next(action);
-    case ListingsConstants.REQUEST_LISTINGS:
+    case ListingConstants.REQUEST_LISTINGS:
       API.fetchListings(allListingsSuccess, error);
       return next(action);
-    case ListingsConstants.UPDATE_LISTING:
+    case ListingConstants.UPDATE_LISTING:
       API.updateListing(action.listing, success, error);
       return next(action);
-    case ListingsConstants.DELETE_LISTING:
+    case ListingConstants.DELETE_LISTING:
       success = () => console.log("Delete successful");
       API.deleteListing(action.listingId, success, error);
       return next(action);
-    case ListingsConstants.CREATE_LISTING:
+    case ListingConstants.CREATE_LISTING:
       API.createListing(action.listing, createListingSuccess, error);
       return next(action);
     default:

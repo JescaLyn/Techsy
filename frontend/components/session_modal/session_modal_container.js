@@ -9,8 +9,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   closeModal: () => dispatch(Actions.closeSessionModal()),
-  openModal: () => dispatch(Actions.closeSessionModal()),
-  setModalType: type => dispatch(Actions.setSessionModalType(type)),
   clearErrors: () => dispatch(clearErrors())
 });
 

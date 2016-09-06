@@ -1,12 +1,14 @@
 import { SessionConstants, receiveCurrentUser, receiveErrors }
   from '../actions/session_actions';
 import { closeSessionModal } from '../actions/modal_actions';
+import { mergeExistingCart, clearCart } from '../actions/cart_actions';
 import { login, signup, logout } from "../util/session_api_util";
 
 const SessionMiddleware = ({ getState, dispatch }) => next => action => {
-  const success = user => {
+  let success = user => {
     dispatch(receiveCurrentUser(user));
     dispatch(closeSessionModal());
+    dispatch(mergeExistingCart());
   };
 
   const error = xhr => {
@@ -22,7 +24,11 @@ const SessionMiddleware = ({ getState, dispatch }) => next => action => {
       login(action.user, success, error);
       return next(action);
     case SessionConstants.LOGOUT:
-      logout(() => next(action));
+      success = () => {
+        dispatch(clearCart());
+        next(action);
+      };
+      logout(success);
       break;
     default:
       next(action);

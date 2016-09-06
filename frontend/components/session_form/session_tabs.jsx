@@ -9,6 +9,7 @@ class SessionTabs extends React.Component {
   }
 
   handleClick(e) {
+    e.preventDefault();
     if (e.target.text === "Register") {
       this.props.setModalRegister();
     } else {
