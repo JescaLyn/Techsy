@@ -51,18 +51,19 @@ class Cart extends React.Component {
 
   render() {
     const cartItems = Object.keys(this.props.cart).map(listingId => (
-      <CartItem item={this.props.cart[listingId]} />
+      <CartItem
+        item={this.props.cart[listingId]}
+        removeCartItem={this.props.removeCartItem}
+        updateCartItem={this.props.updateCartItem}
+      />
     ));
 
-    return (
-      <div className="cart-page">
-        <header className="cart-header">
-          <h1>{this.numItems()} items in your cart</h1>
-          <Link to="/">
-            <button className="button">Keep shopping</button>
-          </Link>
-        </header>
+    let cart;
 
+    if (Object.keys(this.props.cart).length < 1) {
+      cart = <div className="empty-cart"></div>;
+    } else {
+      cart = (
         <main className="cart">
           <section className="cart-items">
             {cartItems}
@@ -89,6 +90,19 @@ class Cart extends React.Component {
             </button>
           </aside>
         </main>
+      );
+    }
+
+    return (
+      <div className="cart-page">
+        <header className="cart-header">
+          <h1>{this.numItems()} items in your cart</h1>
+          <Link to="/">
+            <button className="button">Keep shopping</button>
+          </Link>
+        </header>
+
+        {cart}
       </div>
     );
   }
