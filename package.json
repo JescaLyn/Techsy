@@ -4,16 +4,22 @@
   "description": "== README",
   "main": "index.js",
   "directories": {
-    "doc": "docs"
+    "doc": "docs",
+    "test": "test"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack",
-    "postinstall": "./node_modules/.bin/webpack"
+    "heroku-postbuild": "webpack --config webpack.config.prod.js"
+  },
+  "repository": {
+  "type": "git",
+  "url": "git+https://github.com/JescaLyn/Techsy"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "homepage": "techsy.store",
   "dependencies": {
     "babel-core": "^6.14.0",
     "babel-loader": "^6.2.5",
