@@ -34,7 +34,8 @@ const CartMiddleware = ({ getState, dispatch }) => next => action => {
     case CartConstants.REMOVE_CART_ITEM:
       if (getState().session.currentUser) {
         success = () => next(action);
-        API.destroyCartItem(action.listingId, success, error);
+        const cartItem = { listing_id: action.listingId };
+        API.destroyCartItem(cartItem, success, error);
         break;
       } else {
         return next(action);

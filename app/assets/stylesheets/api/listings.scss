@@ -176,7 +176,7 @@
 .listing-detail-overview {
   font-size: 1.6rem;
   background: white;
-  padding: 1.5rem;
+  padding: 2rem;
   border: thin solid var(--light-border-color);
   margin-bottom: 3rem;
 }
@@ -198,6 +198,7 @@
 .small-shop-logo {
   width: 6em;
   height: 6em;
+  margin-bottom: 0.5em;
 }
 
 .listing-detail-shop {
@@ -206,6 +207,10 @@
   align-items: center;
   background: white;
   padding: 20px 0px;
+}
+
+.listing-detail-shop p {
+  font-size: 1.6rem;
 }
 
 .listing-form {

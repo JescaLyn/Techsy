@@ -1,7 +1,3 @@
-// Place all the styles related to the API::CartItems controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .cart-page {
   width: 100em;
   font-size: 1rem;
@@ -35,9 +31,10 @@
   border: 1px solid var(--light-border-color);
   width: 100%;
   border-radius: 5px;
-  padding: 2em;
+  padding: 3em;
   box-sizing: border-box;
   display: flex;
+  margin-bottom: 3rem;
 }
 
 .cart-items {
@@ -48,23 +45,35 @@
 
 .cart-item {
   display: flex;
-  margin-bottom: 1rem;
-  padding: 2rem;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  margin-right: 3rem;
   font-size: 1.6rem;
 }
 
 .cart-item-details {
   color: gray;
+  width: 25rem;
+}
+
+.cart-item-details * {
+  margin-bottom: 1rem;
 }
 
 .cart-item-title {
   font-weight: bold;
   font-size: 1.8rem;
   color: black;
+  display: block;
+}
+
+.cart-item-title:hover {
+  text-decoration: underline;
 }
 
 .cart-item-img {
   width: 200px;
+  border-radius: 5px;
 }
 
 .remove-link {
@@ -72,7 +81,7 @@
 }
 
 .remove-link:hover {
-  color: gray;
+  text-decoration: underline;
 }
 
 .cart-calculations {

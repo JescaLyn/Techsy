@@ -55,6 +55,7 @@ class Cart extends React.Component {
         item={this.props.cart[listingId]}
         removeCartItem={this.props.removeCartItem}
         updateCartItem={this.props.updateCartItem}
+        key={listingId}
       />
     ));
 
