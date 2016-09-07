@@ -86,7 +86,8 @@ class Cart extends React.Component {
               <span>$ {this.priceFix(this.totalCost())}</span>
             </p>
 
-            <button className="button full-width-button">
+            <button className="button full-width-button"
+              onClick={this.props.deleteUserCart}>
               Checkout
             </button>
           </aside>

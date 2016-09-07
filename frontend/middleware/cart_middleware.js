@@ -1,4 +1,4 @@
-import { CartConstants, receiveUserCart, receiveCartItem }
+import { CartConstants, receiveUserCart, receiveCartItem, clearCart }
   from '../actions/cart_actions';
 import * as API from "../util/cart_api_util";
 import { hashHistory } from 'react-router';
@@ -39,6 +39,15 @@ const CartMiddleware = ({ getState, dispatch }) => next => action => {
         break;
       } else {
         return next(action);
+      }
+    case CartConstants.DELETE_USER_CART:
+      success = () => dispatch(clearCart());
+      if (getState().session.currentUser) {
+        API.destroyUserCart(success, error);
+        break;
+      } else {
+        success();
+        break;
       }
     default:
       next(action);

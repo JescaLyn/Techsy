@@ -23,6 +23,12 @@ class Listing < ActiveRecord::Base
   has_one :user, through: :shop
   has_many :cart_items, dependent: :destroy
 
+  def self.by_search_filter(search_filter)
+    Listing
+      .where("title LIKE :sf OR subtitle LIKE :sf OR description LIKE :sf",
+      sf: "%#{search_filter}%")
+  end
+
   def sibling_listings
     Listing
       .where("shop_id = ?", self.shop_id)

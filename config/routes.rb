@@ -10,5 +10,6 @@ Rails.application.routes.draw do
     patch '/cart_items', to: 'cart_items#update'
     patch '/cart_items/cart', to: 'cart_items#update_cart'
     delete '/cart_items', to: 'cart_items#destroy'
+    delete '/cart_items/cart', to: 'cart_items#destroy_cart'
   end
 end

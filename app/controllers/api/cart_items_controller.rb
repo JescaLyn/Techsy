@@ -1,6 +1,7 @@
 class Api::CartItemsController < ApplicationController
   def update
-    update_cart_item(params[:listing_id], params[:quantity])
+    in_cart = params[:in_cart] || false
+    update_cart_item(params[:listing_id], params[:quantity], params[:in_cart])
     render :show
   end
 
@@ -10,9 +11,7 @@ class Api::CartItemsController < ApplicationController
       item = cart[key]
       update_cart_item(item[:listing_id], item[:quantity])
     end
-    # cart.each do |item|
-    #   update_cart_item(item.listing_id, item.quantity)
-    # end
+
     @cart_items = current_user.cart_items
     render :index
   end
@@ -20,6 +19,12 @@ class Api::CartItemsController < ApplicationController
   def destroy
     @cart_item = cart_find(params[:listing_id])
     @cart_item.destroy
+    render json: {}
+  end
+
+  def destroy_cart
+    user_id = current_user.id
+    CartItem.where(user_id: user_id).destroy_all
     render json: {}
   end
 
@@ -33,11 +38,13 @@ class Api::CartItemsController < ApplicationController
     CartItem.find_by(listing_id: listing_id, user_id: current_user.id)
   end
 
-  def update_cart_item(listing_id, quantity)
+  def update_cart_item(listing_id, quantity, in_cart)
     @cart_item = cart_find(listing_id)
 
-    if @cart_item
+    if @cart_item && !in_cart
       @cart_item[:quantity] = @cart_item[:quantity].to_i + quantity.to_i
+    elsif @cart_item && in_cart
+      @cart_item[:quantity] = quantity.to_i
     else
       @cart_item = CartItem.new(listing_id: listing_id, quantity: quantity)
       @cart_item.user_id = current_user.id

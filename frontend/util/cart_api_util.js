@@ -27,3 +27,12 @@ export const destroyCartItem = (cartItem, success, error) => {
     error
   });
 };
+
+export const destroyUserCart = (success, error) => {
+  $.ajax({
+    method: "delete",
+    url: "/api/cart_items/cart",
+    success,
+    error
+  });
+};

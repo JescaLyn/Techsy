@@ -4,9 +4,10 @@ Functional Listing Detail page
 Change shop currency to match currency on create and show pages
 Change listing form Shop ID
 Styling, styling
-Change variables to Sass
 Look up svg cart icon
 140 character countdown on New Listing Page
 When unsuccessfully logging in on Item Detail page, the listing disappears
 Check availability on shop name/username
 Delete frontend currentUser cart?
+
+Make proceed to checkout work for logged out

@@ -1,6 +1,12 @@
 class Api::ListingsController < ApplicationController
   def index
-    @listings = Listing.all.includes(:shop)
+    if shop_id
+      @listings = Listing.where("shop_id = ?", shop_id)
+    elsif search_filter
+      @listings = Listing.by_search_filter(search_filter)
+    else
+      @listings = Listing.all
+    end
   end
 
   def show
@@ -44,5 +50,13 @@ class Api::ListingsController < ApplicationController
     params
       .require(:listing)
       .permit(:title, :subtitle, :price, :quantity, :description, :image_url, :shop_id)
+  end
+
+  def shop_id
+    params[:shop_id]
+  end
+
+  def search_filter
+    params[:search_filter]
   end
 end

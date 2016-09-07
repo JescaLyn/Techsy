@@ -4,6 +4,7 @@ export const CartConstants = {
   UPDATE_CART_ITEM: "UPDATE_CART_ITEM",
   RECEIVE_CART_ITEM: "RECEIVE_CART_ITEM",
   REMOVE_CART_ITEM: "REMOVE_CART_ITEM",
+  DELETE_USER_CART: "DELETE_USER_CART",
   CLEAR_CART: "CLEAR_CART"
 };
 
@@ -24,6 +25,10 @@ export const removeCartItem = listingId => ({
 
 export const clearCart = () => ({
   type: CartConstants.CLEAR_CART
+});
+
+export const deleteUserCart = () => ({
+  type: CartConstants.DELETE_USER_CART
 });
 
 export const mergeExistingCart = () => ({

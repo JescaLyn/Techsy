@@ -77,8 +77,8 @@ Techsy is a web application inspired by Etsy built using Ruby on Rails and React
 - [X] Removing items from shopping cart
 - [ ] Checking out shopping cart
 - [ ] Redux Components:
-- [ ] ShoppingCart Index
-- [ ] ShoppingCart Item
+- [X] ShoppingCart Index
+- [X] ShoppingCart Item
 - [ ] Cart Checkout Component
 - [ ] Style shopping cart components
 - [X] Seed shopping cart items in guest account
