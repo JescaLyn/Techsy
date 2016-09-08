@@ -5,7 +5,8 @@ const ListingSiblingsIndex = ({ listings, shopName }) => {
   const allListings = listings.map(listing => {
     listing.shop_name = shopName;
     return (
-      <ListingIndexItem listing={listing} key={listing.id} />
+      <ListingIndexItem listing={listing} key={listing.id}
+        small={true} />
     );
   });
 

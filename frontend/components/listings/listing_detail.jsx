@@ -133,7 +133,9 @@ class ListingDetail extends React.Component {
               </Link>
 
               <Link to={"/shops/" + listing.shop_id}>
-                <p>{listing.shop_name}</p>
+                <p className="listing-detail-shop-name">
+                  {listing.shop_name}
+                </p>
               </Link>
 
               {listingSiblings}

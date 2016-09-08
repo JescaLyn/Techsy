@@ -33,6 +33,7 @@ class Listing < ActiveRecord::Base
     Listing
       .where("shop_id = ?", self.shop_id)
       .where("id != ?", self.id)
+      .limit(4)
   end
 
   def price_reset

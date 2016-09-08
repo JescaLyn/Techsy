@@ -66,7 +66,7 @@
 }
 
 .listing-card {
-  height: 5em;
+  height: 5.5em;
   padding: 0.7em;
   background: white;
   border-bottom-left-radius: 0.5em;
@@ -74,15 +74,18 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  overflow: hidden;
 }
 
-.listing-card p {
+.listing-card-title {
+  width: 40rem;
   font-size: 1.6em;
 }
 
 .listing-card span {
   display: flex;
   justify-content: space-between;
+  font-size: 1.6em;
 }
 
 .listing-index-price {
@@ -209,7 +212,7 @@
   padding: 20px 0px;
 }
 
-.listing-detail-shop p {
+.listing-detail-shop-name {
   font-size: 1.6rem;
 }
 
@@ -279,4 +282,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.small {
+  font-size: 12px;
 }
