@@ -6,8 +6,9 @@ class Shop extends React.Component {
   render() {
     const shop = this.props.shop;
     const year = shop.created_at ? shop.created_at.slice(0,4) : "";
+    const currentUser = this.props.currentUser;
     const createListing = () => {
-      if (this.props.currentUser.shop_id === shop.id) {
+      if (currentUser && currentUser.shop_id === shop.id) {
         return (
           <Link to="/listing/create" className="create-listing-link">
             Create New Listing

@@ -13,7 +13,7 @@ class SellSplash extends React.Component {
   render() {
     return (
       <div className="splash">
-        <img src="http://res.cloudinary.com/dzikfml7y/image/upload/v1473284358/sell-on-techsy_pksvnt.jpg" />
+        <img src="http://res.cloudinary.com/dzikfml7y/image/upload/c_crop,g_south,h_743,w_1700/v1473284358/sell-on-techsy_pksvnt.jpg" />
         <button className="sell-button" onClick={this.handleClick.bind(this)}>Open your shop</button>
       </div>
     );
