@@ -59,6 +59,15 @@ class SessionTabs extends React.Component {
             <a href="#" onClick={this.handleClick}>Login</a>
           </li>
         </ul>
+
+        <button className="guest-login"
+          onClick={this.props.login.bind(this, { user: {
+            username: "Guest",
+            password: "password"
+          }})}>
+          Or Login as Guest&nbsp;&nbsp;{"\u2794"}
+        </button>
+
         <div className="session-form-box">
           { this.renderErrors() }
           {form}

@@ -21,7 +21,7 @@ const ListingsMiddleware = ({ getState, dispatch }) => next => action => {
       API.fetchListing(action.listingId, success, error);
       return next(action);
     case ListingConstants.REQUEST_LISTINGS:
-      API.fetchListings(allListingsSuccess, error);
+      API.fetchListings(allListingsSuccess, error, action.filters);
       return next(action);
     case ListingConstants.UPDATE_LISTING:
       API.updateListing(action.listing, success, error);

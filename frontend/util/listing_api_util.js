@@ -1,4 +1,4 @@
-export const fetchListings = (success, error, filters = {}) => {
+export const fetchListings = (success, error, filters) => {
   $.ajax({
     method: "get",
     url: "/api/listings",

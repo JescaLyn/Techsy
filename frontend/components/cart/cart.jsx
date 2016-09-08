@@ -1,6 +1,6 @@
 import React from 'react';
 import CartItem from './cart_item';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
 
 class Cart extends React.Component {
   constructor(props) {
@@ -10,6 +10,7 @@ class Cart extends React.Component {
     this.taxCost = this.taxCost.bind(this);
     this.totalCost = this.totalCost.bind(this);
     this.priceFix = this.priceFix.bind(this);
+    this.keepShopping = this.keepShopping.bind(this);
   }
 
   numItems() {
@@ -47,6 +48,10 @@ class Cart extends React.Component {
     } else {
       return price;
     }
+  }
+
+  keepShopping() {
+    this.props.router.goBack();
   }
 
   render() {
@@ -99,9 +104,9 @@ class Cart extends React.Component {
       <div className="cart-page">
         <header className="cart-header">
           <h1>{this.numItems()} items in your cart</h1>
-          <Link to="/">
-            <button className="button">Keep shopping</button>
-          </Link>
+          <button className="button" onClick={this.keepShopping}>
+            Keep shopping
+          </button>
         </header>
 
         {cart}
@@ -110,4 +115,4 @@ class Cart extends React.Component {
   }
 }
 
-export default Cart;
+export default withRouter(Cart);

@@ -50,6 +50,10 @@ class User < ActiveRecord::Base
     self.save
   end
 
+  def shop_id
+    self.shop ? self.shop.id : nil
+  end
+
   private
 
   def generate_session_token

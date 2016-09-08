@@ -4,7 +4,7 @@ import { createShop, receiveErrors } from '../../actions/shop_actions';
 
 const mapStateToProps = state => ({
   errors: state.shop.errors,
-  currentUserId: state.session.currentUser.id
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import Shop from './shop';
 
 const mapStateToProps = state => ({
-  listings: state.listings
+  shop: state.shop.currentShop,
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -1,5 +1,6 @@
 import React from 'react';
 import Select from 'react-select';
+import { withRouter } from 'react-router';
 
 class ShopForm extends React.Component {
   constructor(props) {
@@ -11,16 +12,36 @@ class ShopForm extends React.Component {
       currency: "",
       kind: "",
       image_url: "",
-      user_id: this.props.currentUserId
+      user_id: this.props.currentUser.id
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.openCloudinaryWidget = this.openCloudinaryWidget.bind(this);
     this.handleImageUpload = this.handleImageUpload.bind(this);
   }
 
+  componentWillMount() {
+    const shopId = this.props.currentUser.shop_id;
+
+    if (shopId) {
+      this.props.router.push(`/shops/${shopId}`);
+    }
+  }
+
   update(field, e) {
     let newState = {};
     newState[field] = e.target.value;
+    this.setState(newState);
+  }
+
+  updateSelect(field, option) {
+    let newState = {};
+
+    if (option) {
+      newState[field] = option.value;
+    } else {
+      newState[field] = "";
+    }
+
     this.setState(newState);
   }
 
@@ -117,50 +138,53 @@ class ShopForm extends React.Component {
             />
           </label>
 
-          <Select
-            className="shop-form-country"
-            value={this.state.country}
-            options={countryOptions}
-            onChange={this.update.bind(this, "country")}
-          />
+          <label>Country
+            <Select
+              className="shop-form-country"
+              value={this.state.country}
+              options={countryOptions}
+              onChange={this.updateSelect.bind(this, "country")}
+            />
+          </label>
 
-          <Select
-            className="shop-form-currency"
-            value={this.state.currency}
-            options={currencyOptions}
-            onChange={this.update.bind(this, "currency")}
-          />
+          <label>Currency
+            <Select
+              className="shop-form-currency"
+              value={this.state.currency}
+              options={currencyOptions}
+              onChange={this.updateSelect.bind(this, "currency")}
+            />
+          </label>
 
-          <label>Which of these best describes you?
-            <input
+          <p>Which of these best describes you?</p>
+            <p className="indent"><input
               type="radio"
               value="full time"
               name="kind"
               checked={checked("full time")}
               onChange={this.update.bind(this, "kind")} />
-              Selling is my full-time job
-            <input
+              &nbsp;&nbsp;Selling is my full-time job</p>
+            <p className="indent"><input
               type="radio"
               value="part full time"
               name="kind"
               checked={checked("part full time")}
               onChange={this.update.bind(this, "kind")} />
-              I sell part-time but hope to sell full-time
-            <input
+              &nbsp;&nbsp;I sell part-time but hope to sell full-time</p>
+            <p className="indent"><input
               type="radio"
               value="part time"
               name="kind"
               checked={checked("part time")}
               onChange={this.update.bind(this, "kind")} />
-              I sell part-time and that’s how I like it
-            <input
+              &nbsp;&nbsp;I sell part-time and that’s how I like it</p>
+            <p className="indent"><input
               type="radio"
               value="other"
               name="kind"
               checked={checked("other")}
               onChange={this.update.bind(this, "kind")} />
-              Other
-          </label>
+              &nbsp;&nbsp;Other</p>
 
           <div className="photoAdd" onClick={this.openCloudinaryWidget}>
             <div className="photoAddInner">
@@ -168,6 +192,7 @@ class ShopForm extends React.Component {
               <p>Add a logo</p>
             </div>
           </div>
+          <p className="disclaimer">PICK A SQUARE (1 x 1) PHOTO</p>
 
           <button className="button">Create Shop</button>
 
@@ -177,4 +202,4 @@ class ShopForm extends React.Component {
   }
 }
 
-export default ShopForm;
+export default withRouter(ShopForm);

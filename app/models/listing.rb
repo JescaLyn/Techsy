@@ -25,14 +25,14 @@ class Listing < ActiveRecord::Base
 
   def self.by_search_filter(search_filter)
     Listing
-      .where("title LIKE :sf OR subtitle LIKE :sf OR description LIKE :sf",
+      .where("title ILIKE :sf OR subtitle ILIKE :sf OR description ILIKE :sf",
       sf: "%#{search_filter}%")
   end
 
   def sibling_listings
     Listing
       .where("shop_id = ?", self.shop_id)
-      # .where("id != ?", self.id)
+      .where("id != ?", self.id)
   end
 
   def price_reset

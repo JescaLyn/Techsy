@@ -1,6 +1,7 @@
 import React from 'react';
 import ListingSiblingsIndex from './listing_siblings_index';
 import Select from 'react-select';
+import { Link } from 'react-router';
 
 class ListingDetail extends React.Component {
   constructor(props) {
@@ -124,11 +125,17 @@ class ListingDetail extends React.Component {
             </section>
 
             <section className="listing-detail-shop cf">
-              <img
-                src={listing.shop_image_url}
-                className="small-shop-logo"
-              />
-              <p>{listing.shop_name}</p>
+              <Link to={"/shops/" + listing.shop_id}>
+                <img
+                  src={listing.shop_image_url}
+                  className="small-shop-logo"
+                />
+              </Link>
+
+              <Link to={"/shops/" + listing.shop_id}>
+                <p>{listing.shop_name}</p>
+              </Link>
+
               {listingSiblings}
             </section>
           </aside>

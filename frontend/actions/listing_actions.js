@@ -15,8 +15,9 @@ export const requestListing = listingId => ({
   listingId
 });
 
-export const requestListings = () => ({
-  type: ListingConstants.REQUEST_LISTINGS
+export const requestListings = (filters) => ({
+  type: ListingConstants.REQUEST_LISTINGS,
+  filters
 });
 
 export const receiveListing = listing => ({

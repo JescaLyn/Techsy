@@ -24,8 +24,8 @@ body {
   background: #c4d5d9;
 
   --light-border-color: #DADBD6;
-  --button-1-color: #ff9100;
-  --button-1-hover: #ffae19;
+  --button-1-color: #ff8d00;
+  --button-1-hover: #ffa700;
   --button-2-color: #813772;
   --button-2-hover: #9a5e8e;
   --text-border-top-left: #c2c2c2;
@@ -38,6 +38,7 @@ body {
   --grayed-text: #a1a1a1;
   --light-gray-background: #ecedea;
   --add-photo: #deeff5;
+  --blue-link: #0192B5;
 }
 
 h1 {
@@ -90,7 +91,7 @@ header {
   padding: 10px 30px;
   border-bottom: 1px solid var(--light-border-color);
   background: var(--header-background);
-  font-size: 18px;
+  font-size: 16px;
 }
 
 nav ul {
@@ -146,4 +147,61 @@ nav ul li {
 .cart-link:hover {
   color: var(--light-background);
   cursor: pointer;
+}
+
+.left-nav {
+  width: 47rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-bar {
+  display: flex;
+  width: 29rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-input {
+  width: 20rem;
+  background: white;
+  display: block;
+  border: 1px solid var(--text-border-top-left);
+  border-right: 1px solid var(--text-border-bottom-right);
+  border-bottom: 1px solid var(--text-border-bottom-right);
+  padding: 6px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.search-button {
+  background: var(--button-1-color);
+  color: white;
+  text-align: center;
+  padding: 0 10px;
+  height: 32px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-weight: bold;
+  display: block;
+  box-sizing: border-box;
+}
+
+.search-button:hover {
+  background: var(--button-1-hover);
+}
+
+.sell-button {
+  position: relative;
+  bottom: 200px;
+  left: 65%;
+  color: white;
+  background: var(--button-1-color);
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 20px;
+}
+
+.sell-button:hover {
+  background: var(--button-1-hover);
 }

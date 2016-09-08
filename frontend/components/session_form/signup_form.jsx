@@ -76,7 +76,6 @@ class SignupForm extends React.Component {
         </label>
 
         <button className="button">Register</button>
-
       </form>
     );
   }

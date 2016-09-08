@@ -1,3 +1,158 @@
-// Place all the styles related to the API::Shops controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.shop-page {
+  font-size: 1rem;
+}
+
+.shop-banner {
+  background: white;
+  height: 20em;
+}
+
+.shop-details {
+  padding: 2em 2em;
+  width: 100em;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.shop-info {
+  display: flex;
+  justify-content: space-around;
+}
+
+.shop-info img {
+  height: 160px;
+  width: 160px;
+}
+
+.shop-text {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  justify-content: space-between;
+}
+
+.shop-text h2 {
+  font-size: 32px;
+  margin-bottom: -10px;
+}
+
+.shop-text p {
+  font-size: 16px;
+}
+
+.shop-text img {
+  height: 28px;
+  width: 120px;
+}
+
+.shop-owner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 12em;
+  box-sizing: border-box;
+}
+
+.shop-owner img {
+  width: 5em;
+}
+
+.shop-owner p {
+  font-size: 11px;
+  color: var(--grayed-text);
+  margin-bottom: 1rem;
+}
+
+.shop-owner a {
+  margin-top: 1em;
+  font-size: 14px;
+  color: var(--blue-link);
+}
+
+.shop-owner a:hover {
+  text-decoration: underline;
+}
+
+.shop-form {
+  background: white;
+  width: 900px;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 5px;
+  border: 1px solid var(--light-border-color);
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.shop-form label {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.shop-form-first-row {
+  font-size: 28px;
+}
+
+.shop-form-text {
+  width: 715px;
+  border: 1px solid var(--text-border-top-left);
+  border-right: 1px solid var(--text-border-bottom-right);
+  border-bottom: 1px solid var(--text-border-bottom-right);
+  margin: 3px 15px;
+  padding: 6px;
+}
+
+.shop-form-name {
+  width: 780px;
+}
+
+.shop-form-currency, .shop-form-country {
+  margin: 0 15px;
+  width: 250px;
+}
+
+.radio-btns {
+  display: block;
+}
+
+.radio-btns input {
+  display: block;
+}
+
+.shop-form button {
+  margin: 0 auto;
+}
+
+.fa-camera {
+  margin-bottom: 5px;
+}
+
+.indent {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.disclaimer {
+  font-size: 11px;
+  color: var(--grayed-text);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.create-listing-link {
+  color: var(--blue-link);
+  display: block;
+  margin: 0 auto;
+  width: 800px;
+  text-align: center;
+  font-size: 36px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
