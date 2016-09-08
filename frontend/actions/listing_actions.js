@@ -7,7 +7,8 @@ export const ListingConstants = {
   DELETE_LISTING: "DELETE_LISTING",
   CREATE_LISTING: "CREATE_LISTING",
   RECEIVE_ERRORS: "RECEIVE_ERRORS",
-  CLEAR_ERRORS: "CLEAR_ERRORS"
+  CLEAR_ERRORS: "CLEAR_ERRORS",
+  CLEAR_LISTINGS: "CLEAR_LISTINGS"
 };
 
 export const requestListing = listingId => ({
@@ -52,4 +53,8 @@ export const receiveErrors = errors => ({
 
 export const clearErrors = () => ({
   type: ListingConstants.CLEAR_ERRORS
+});
+
+export const clearListings = () => ({
+  type: ListingConstants.CLEAR_LISTINGS
 });
