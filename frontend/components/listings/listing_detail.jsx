@@ -145,7 +145,8 @@ class ListingDetail extends React.Component {
     );
 
     const buttonContent = () => {
-      if (this.props.currentUser.id === listing.user_id) {
+      const currentUser = this.props.currentUser;
+      if (currentUser && currentUser.id === listing.user_id) {
         return userListing;
       } else {
         return notUserListing;

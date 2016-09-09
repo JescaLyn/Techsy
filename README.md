@@ -55,7 +55,9 @@ Listings are stored in one table in the database that keeps track of `shop_id`, 
 
 If the user enters a search query in the `SearchBar` and clicks "Search", the backend will filter only those listings whose `title`, `subtitle`, and `description` include each of the words in the search query. In the backend, the search query is split into individual words to query the database properly.
 
-Listings are rendered in either the `ListingIndex` or `ListingDetail` component. The `ListingIndex` component renders all listings in the `listings` part of the frontend state in a grid. The UI is inspired by several different sites and show the listing image, title, shop name, and price. 
+Listings are rendered in either the `ListingIndex` or `ListingDetail` component. The `ListingIndex` component renders all listings in the `listings` part of the frontend state in a grid. The UI is inspired by several different sites. Each `ListingIndexItem` shows the listing image, title, shop name, and price. The user may also mouseover the listing to see the listing subtitle.
+
+The `ListingDetail` component render 
 
 ### Cart
 
