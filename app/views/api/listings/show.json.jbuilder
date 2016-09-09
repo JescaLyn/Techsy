@@ -6,3 +6,10 @@ json.siblings do
     json.partial! "api/listings/listing", listing: sibling
   end
 end
+json.reviews do
+  json.array! @listing.reviews do |review|
+    json.rating review.rating
+    json.comment review.comment
+    json.username review.user.username
+  end
+end

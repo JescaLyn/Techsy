@@ -13,10 +13,10 @@ const ShopReducer = (state = defaultState, action) => {
     case ShopConstants.RECEIVE_SHOP:
       newState.currentShop = action.shop;
       return newState;
-    case ShopConstants.RECEIVE_ERRORS:
+    case ShopConstants.RECEIVE_SHOP_ERRORS:
       newState.errors = action.errors;
       return newState;
-    case ShopConstants.CLEAR_ERRORS:
+    case ShopConstants.CLEAR_SHOP_ERRORS:
       newState = merge({}, state);
       newState.errors = [];
       return newState;

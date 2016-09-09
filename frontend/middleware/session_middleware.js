@@ -1,4 +1,4 @@
-import { SessionConstants, receiveCurrentUser, receiveErrors }
+import { SessionConstants, receiveCurrentUser, receiveSessionErrors }
   from '../actions/session_actions';
 import { closeSessionModal, clearDestination } from '../actions/modal_actions';
 import { mergeExistingCart, clearCart } from '../actions/cart_actions';
@@ -20,7 +20,7 @@ const SessionMiddleware = ({ getState, dispatch }) => next => action => {
 
   const error = xhr => {
     const errors = xhr.responseJSON;
-    dispatch(receiveErrors(errors));
+    dispatch(receiveSessionErrors(errors));
   };
 
   switch (action.type) {

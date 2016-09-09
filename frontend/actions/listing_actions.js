@@ -6,8 +6,8 @@ export const ListingConstants = {
   UPDATE_LISTING: "UPDATE_LISTING",
   DELETE_LISTING: "DELETE_LISTING",
   CREATE_LISTING: "CREATE_LISTING",
-  RECEIVE_ERRORS: "RECEIVE_ERRORS",
-  CLEAR_ERRORS: "CLEAR_ERRORS",
+  RECEIVE_LISTING_ERRORS: "RECEIVE_LISTING_ERRORS",
+  CLEAR_LISTING_ERRORS: "CLEAR_LISTING_ERRORS",
   CLEAR_LISTINGS: "CLEAR_LISTINGS"
 };
 
@@ -46,13 +46,13 @@ export const createListing = listing => ({
   listing
 });
 
-export const receiveErrors = errors => ({
-  type: ListingConstants.RECEIVE_ERRORS,
+export const receiveListingErrors = errors => ({
+  type: ListingConstants.RECEIVE_LISTING_ERRORS,
   errors
 });
 
-export const clearErrors = () => ({
-  type: ListingConstants.CLEAR_ERRORS
+export const clearListingErrors = () => ({
+  type: ListingConstants.CLEAR_LISTING_ERRORS
 });
 
 export const clearListings = () => ({

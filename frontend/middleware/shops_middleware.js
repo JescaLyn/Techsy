@@ -1,4 +1,4 @@
-import { ShopConstants, receiveShops, receiveShop, receiveErrors }
+import { ShopConstants, receiveShops, receiveShop, receiveShopErrors }
   from '../actions/shop_actions';
 import * as API from "../util/shop_api_util";
 import { hashHistory } from 'react-router';
@@ -12,7 +12,7 @@ const ShopsMiddleware = ({ getState, dispatch }) => next => action => {
 
   const error = xhr => {
     const errors = xhr.responseJSON;
-    dispatch(receiveErrors(errors));
+    dispatch(receiveShopErrors(errors));
   };
 
   switch (action.type) {

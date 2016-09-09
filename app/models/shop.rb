@@ -57,4 +57,13 @@ class Shop < ActiveRecord::Base
 
   belongs_to :user
   has_many :listings
+  has_many :reviews, through: :listings
+
+  def average_rating
+    rating_sum = 0
+    self.reviews.each do |review|
+      rating_sum += review.rating.to_i
+    end
+    rating_sum.to_f / self.reviews.length
+  end
 end

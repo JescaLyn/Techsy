@@ -2,6 +2,8 @@ import React from 'react';
 import ListingSiblingsIndex from './listing_siblings_index';
 import Select from 'react-select';
 import { Link } from 'react-router';
+import ReactStars from 'react-stars';
+import Review from './review';
 
 class ListingDetail extends React.Component {
   constructor(props) {
@@ -14,18 +16,41 @@ class ListingDetail extends React.Component {
     this.handleTabClick = this.handleTabClick.bind(this);
     this.updateQuantity = this.updateQuantity.bind(this);
     this.addToCart = this.addToCart.bind(this);
+    this.averageRating = this.averageRating.bind(this);
+    this.numReviews = this.numReviews.bind(this);
+  }
+
+  averageRating() {
+    if (!this.props.listing.reviews) {
+      return 0;
+    }
+
+    let ratingSum = 0;
+    this.props.listing.reviews.forEach(review => {
+      ratingSum += parseFloat(review.rating);
+    });
+
+    return ratingSum / this.props.listing.reviews.length;
+  }
+
+  numReviews() {
+    if (this.props.listing.reviews) {
+      return this.props.listing.reviews.length;
+    } else {
+      return 0;
+    }
   }
 
   handleTabClick(e) {
-    if (e.currentTarget.textContent === "Reviews") {
-      this.setState({
-        itemDetails: "inactive",
-        reviews: "active"
-      });
-    } else {
+    if (e.currentTarget.textContent === "Item Details") {
       this.setState({
         itemDetails: "active",
         reviews: "inactive"
+      });
+    } else {
+      this.setState({
+        itemDetails: "inactive",
+        reviews: "active"
       });
     }
   }
@@ -66,6 +91,31 @@ class ListingDetail extends React.Component {
         label: `${i + 1}`
       }));
 
+    const description = (
+      <p className="listing-description">
+        {listing.description}
+      </p>
+    );
+
+    let reviews;
+    if (listing.reviews) {
+      reviews = (
+        <div className="listing-description">
+          {listing.reviews.map((review, i) => (
+            <Review review={review} key={i} />
+          ))}
+        </div>
+      );
+    }
+
+    const tabContent = () => {
+      if (this.state.itemDetails === "active") {
+        return description;
+      } else {
+        return reviews;
+      }
+    };
+
     return (
       <main className="listing-detail">
 
@@ -92,13 +142,19 @@ class ListingDetail extends React.Component {
                 </li>
                 <li className={this.state.reviews}
                   onClick={this.handleTabClick} >
-                  Reviews
+                  <div className="tab-no-underline">
+                    <ReactStars className="stars"
+                      count={5}
+                      value={this.averageRating()}
+                      size={14}
+                      edit={false}
+                      color2={'#ffa700'} />&nbsp;
+                  </div>
+                  ({this.numReviews()})
                 </li>
               </ul>
 
-              <p className="listing-description">
-                {listing.description}
-              </p>
+              {tabContent()}
             </section>
 
           </section>

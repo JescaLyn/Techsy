@@ -13,12 +13,12 @@ const SessionReducer = (state = defaultState, action) => {
     case SessionConstants.RECEIVE_CURRENT_USER:
       newState.currentUser = action.user;
       return newState;
-    case SessionConstants.RECEIVE_ERRORS:
+    case SessionConstants.RECEIVE_SESSION_ERRORS:
       newState.errors = action.errors;
       return newState;
     case SessionConstants.LOGOUT:
       return newState;
-    case SessionConstants.CLEAR_ERRORS:
+    case SessionConstants.CLEAR_SESSION_ERRORS:
       newState.errors = [];
       return newState;
     default:

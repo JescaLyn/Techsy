@@ -64,7 +64,7 @@ class ShopForm extends React.Component {
 
   handleImageUpload(error, result) {
     if (error) {
-      this.props.receiveErrors([error]);
+      this.props.receiveShopErrors([error]);
     } else {
       this.setState({ image_url: result[0].url });
     }

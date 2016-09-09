@@ -13,8 +13,8 @@
     "heroku-postbuild": "webpack --config webpack.config.prod.js"
   },
   "repository": {
-  "type": "git",
-  "url": "git+https://github.com/JescaLyn/Techsy"
+    "type": "git",
+    "url": "git+https://github.com/JescaLyn/Techsy"
   },
   "keywords": [],
   "author": "",
@@ -30,7 +30,9 @@
     "react-modal": "^1.4.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.7.0",
+    "react-search": "^1.0.10",
     "react-select": "^1.0.0-rc.1",
+    "react-stars": "^2.1.0",
     "redux": "^3.5.2",
     "webpack": "^1.13.2"
   },

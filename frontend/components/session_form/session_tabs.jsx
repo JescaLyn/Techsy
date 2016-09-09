@@ -15,7 +15,7 @@ class SessionTabs extends React.Component {
     } else {
       this.props.setModalLogin();
     }
-    this.props.clearErrors();
+    this.props.clearSessionErrors();
   }
 
   renderErrors(){

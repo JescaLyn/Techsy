@@ -4,8 +4,8 @@ export const ShopConstants = {
   UPDATE_SHOP: "UPDATE_SHOP",
   DELETE_SHOP: "DELETE_SHOP",
   CREATE_SHOP: "CREATE_SHOP",
-  RECEIVE_ERRORS: "RECEIVE_ERRORS",
-  CLEAR_ERRORS: "CLEAR_ERRORS"
+  RECEIVE_SHOP_ERRORS: "RECEIVE_SHOP_ERRORS",
+  CLEAR_SHOP_ERRORS: "CLEAR_SHOP_ERRORS"
 };
 
 export const requestShop = shopId => ({
@@ -28,11 +28,11 @@ export const createShop = shop => ({
   shop
 });
 
-export const receiveErrors = errors => ({
-  type: ShopConstants.RECEIVE_ERRORS,
+export const receiveShopErrors = errors => ({
+  type: ShopConstants.RECEIVE_SHOP_ERRORS,
   errors
 });
 
-export const clearErrors = () => ({
-  type: ShopConstants.CLEAR_ERRORS
+export const clearShopErrors = () => ({
+  type: ShopConstants.CLEAR_SHOP_ERRORS
 });

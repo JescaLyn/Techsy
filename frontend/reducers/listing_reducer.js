@@ -13,10 +13,10 @@ const ListingReducer = (state = defaultState, action) => {
     case ListingConstants.RECEIVE_LISTING:
       newState.currentListing = action.listing;
       return newState;
-    case ListingConstants.RECEIVE_ERRORS:
+    case ListingConstants.RECEIVE_LISTING_ERRORS:
       newState.errors = action.errors;
       return newState;
-    case ListingConstants.CLEAR_ERRORS:
+    case ListingConstants.CLEAR_LISTING_ERRORS:
       newState = merge({}, state);
       newState.errors = [];
       return newState;

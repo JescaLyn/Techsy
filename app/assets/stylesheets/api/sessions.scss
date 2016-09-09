@@ -29,10 +29,6 @@
   z-index: 1;
 }
 
-.session-tab:hover {
-  cursor: pointer;
-}
-
 .inactive {
   background: var(--header-background);
   border-bottom: 1px solid var(--light-border-color);
@@ -46,6 +42,7 @@
 
 .inactive:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .session-form-box {

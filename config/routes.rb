@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show]
     resource :session, only: [:create, :destroy]
     resources :listings, only: [:index, :show, :create, :update, :destroy]
+    get '/search_terms', to: 'listings#search_terms'
     resources :shops, only: [:show, :create, :update]
     resources :cart_items, only: [:show]
     patch '/cart_items', to: 'cart_items#update'

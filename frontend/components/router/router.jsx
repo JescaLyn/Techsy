@@ -7,15 +7,15 @@ import ListingFormContainer from '../listing_form/listing_form_container';
 import ShopFormContainer from '../shop_form/shop_form_container';
 import CartContainer from '../cart/cart_container';
 import ShopContainer from '../shop/shop_container';
-import ListingIndexContainer from '../listings/listing_index_container';
 import SellSplashContainer from '../splash/sell_splash_container';
+import SearchResultsContainer from '../search_results/search_results_container';
 
 class AppRouter extends React.Component {
   constructor(props) {
     super(props);
 
     this.routes = (
-      <Route path="/" component={ App }>
+      <Route path="/" component={ App } >
         <IndexRoute
           component={ Splash }
           onEnter={this.requestListingsOnEnter.bind(this)}
@@ -40,7 +40,7 @@ class AppRouter extends React.Component {
           />
         <Route
           path="/search-results"
-          component={ ListingIndexContainer }
+          component={ SearchResultsContainer }
           />
         <Route
           path="/shop/create"

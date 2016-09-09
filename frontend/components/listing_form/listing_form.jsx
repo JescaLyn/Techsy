@@ -60,7 +60,7 @@ class ListingForm extends React.Component {
 
   handleImageUpload(error, result) {
     if (error) {
-      this.props.receiveErrors([error]);
+      this.props.receiveListingErrors([error]);
     } else {
       this.setState({ image_url: result[0].url });
     }

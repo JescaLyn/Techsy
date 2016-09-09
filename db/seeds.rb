@@ -666,3 +666,48 @@ CartItem.create([
     quantity: 1
   }
 ])
+
+REVIEWS = [
+  {
+    rating: 5,
+    comment: "Excellent! This worked very well for me."
+  },
+  {
+    rating: 5,
+    comment: "I am a very happy customer! Loved it!"
+  },
+  {
+    rating: 5,
+    comment: "Exactly as expected, except maybe a little better."
+  },
+  {
+    rating: 4,
+    comment: "Pretty good, not perfect."
+  },
+  {
+    rating: 4,
+    comment: "Overall I really liked it."
+  },
+  {
+    rating: 3,
+    comment: "This was okay."
+  },
+  {
+    rating: 2,
+    comment: "Not really what was described."
+  },
+  {
+    rating: 1,
+    comment: "Horrible. Shipping was slow. Not as pictured."
+  }
+]
+
+Listing.all.each do |listing|
+  3.times {
+    review = REVIEWS[rand(8)]
+    user_id = User.all[rand(User.all.length)].id
+    review[:user_id] = user_id
+    review[:listing_id] = listing.id
+    Review.create(review)
+  }
+end

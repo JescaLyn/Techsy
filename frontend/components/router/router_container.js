@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import Router from './router';
 import { requestListing, requestListings } from '../../actions/listing_actions';
 import { requestShop } from '../../actions/shop_actions';
+import { requestSearchTerms } from '../../actions/search_actions';
 import { openSessionModal } from '../../actions/modal_actions';
 
 const mapStateToProps = state => ({

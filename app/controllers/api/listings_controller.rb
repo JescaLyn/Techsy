@@ -44,6 +44,11 @@ class Api::ListingsController < ApplicationController
     end
   end
 
+  def search_terms
+    @search_terms = Listing.search_terms
+    render json: @search_terms
+  end
+
   private
 
   def listing_params

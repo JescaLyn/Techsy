@@ -10,7 +10,7 @@ class SessionModal extends React.Component {
 
   closeModal() {
     this.props.closeModal();
-    this.props.clearErrors();
+    this.props.clearSessionErrors();
   }
 
   render() {

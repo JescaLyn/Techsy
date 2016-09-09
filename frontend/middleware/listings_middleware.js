@@ -1,5 +1,5 @@
 import { ListingConstants, receiveListings, receiveListing,
-  receiveErrors, clearListings } from '../actions/listing_actions';
+  receiveListingErrors, clearListings } from '../actions/listing_actions';
 import * as API from "../util/listing_api_util";
 import { hashHistory } from 'react-router';
 
@@ -13,7 +13,7 @@ const ListingsMiddleware = ({ getState, dispatch }) => next => action => {
 
   const error = xhr => {
     const errors = xhr.responseJSON;
-    dispatch(receiveErrors(errors));
+    dispatch(receiveListingErrors(errors));
   };
 
   switch (action.type) {

@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import SessionTabs from './session_tabs';
-import { login, signup, clearErrors } from '../../actions/session_actions';
+import { login, signup, clearSessionErrors }
+  from '../../actions/session_actions';
 import { setSessionModalType } from "../../actions/modal_actions";
 
 const mapStateToProps = state => ({
@@ -14,7 +15,7 @@ const mapDispatchToProps = dispatch => ({
   login: user => dispatch(login(user)),
   setModalRegister: () => dispatch(setSessionModalType("register")),
   setModalLogin: () => dispatch(setSessionModalType("login")),
-  clearErrors: () => dispatch(clearErrors())
+  clearSessionErrors: () => dispatch(clearSessionErrors())
 });
 
 export default connect(

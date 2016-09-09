@@ -149,7 +149,7 @@
 
 .listing-detail-tabs li {
   font-size: 1.6em;
-  width: 100px;
+  width: 110px;
   height: 40px;
   display: flex;
   justify-content: center;
@@ -157,9 +157,19 @@
   z-index: 1;
 }
 
-.listing-detail-tabs li:hover {
-  text-decoration: underline;
-  cursor: pointer;
+.tab-no-underline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.listing-detail-tabs li:hover .tab-no-underline {
+  text-decoration: none;
+}
+
+.stars {
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .listing-description {
@@ -167,6 +177,19 @@
   background: white;
   padding: 20px;
   line-height: 1.3em;
+  width: 600px;
+}
+
+.review {
+  margin-bottom: 40px;
+  display: flex;
+  position: relative;
+}
+
+.review-details {
+  position: absolute;
+  left: 100px;
+  top: -2px;
 }
 
 .listing-detail-aside {

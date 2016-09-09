@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ShopForm from './shop_form';
-import { createShop, receiveErrors } from '../../actions/shop_actions';
+import { createShop, receiveShopErrors } from '../../actions/shop_actions';
 
 const mapStateToProps = state => ({
   errors: state.shop.errors,
@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   createShop: shop => dispatch(createShop(shop)),
-  receiveErrors: errors => dispatch(receiveErrors(errors))
+  receiveShopErrors: errors => dispatch(receiveShopErrors(errors))
 });
 
 export default connect(

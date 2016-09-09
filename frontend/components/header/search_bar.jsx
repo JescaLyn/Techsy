@@ -13,6 +13,7 @@ class SearchBar extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.props.receiveSearchQuery(this.state.search_filter);
     this.props.requestListings(this.state);
     this.props.router.push("/search-results");
   }
@@ -30,6 +31,7 @@ class SearchBar extends React.Component {
           className="search-input text"
           onChange={this.updateSearchFilter}
         />
+
         <button className="search-button">
           Search
         </button>

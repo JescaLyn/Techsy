@@ -22,11 +22,43 @@ class Listing < ActiveRecord::Base
   belongs_to :shop
   has_one :user, through: :shop
   has_many :cart_items, dependent: :destroy
+  has_many :reviews, dependent: :destroy
+
+  SMALL_WORDS = ["the","of","and","a","to","in","is","you","that","it",
+    "he","was","for","on","are","as","with","his","they","I","at","be",
+    "this","have","from","or","one","had","by","word","but","not","what",
+    "all","were","we","when","your","can","said","there","use","an","each",
+    "which","she","do","how","their","if","will","up","other","about","out",
+    "many","then","them","these","so","some","her","would","make","like",
+    "him","into","time","has","look","two","more","write","go","see","number",
+    "no","way","could","people","my","than","first","water","been","call",
+    "who","oil","its","now","find","long","down","day","did","get","come",
+    "made","may","part"]
 
   def self.by_search_filter(search_filter)
-    Listing
-      .where("title ILIKE :sf OR subtitle ILIKE :sf OR description ILIKE :sf",
-      sf: "%#{search_filter}%")
+    search_terms = search_filter.split(" ")
+    listings = Listing.all
+
+    search_terms.each do |term|
+      listings = listings.where("title ILIKE :sf OR subtitle ILIKE :sf
+        OR description ILIKE :sf", sf: "%#{term}%")
+    end
+
+    listings
+  end
+
+  def self.search_terms
+    words = Listing.all.map do |listing|
+      (listing.title << " " << listing.subtitle << " " << listing.description)
+        .downcase
+    end.map do |content|
+      content.split(/\W+/)
+    end.flatten.reject { |el| el.length < 3 || SMALL_WORDS.include?(el) }
+
+    wordsHash = Hash.new(0)
+    words.each { |word| wordsHash[word] += 1 }
+
+    search_terms = wordsHash.sort_by { |_, val| val }.to_h.keys
   end
 
   def sibling_listings

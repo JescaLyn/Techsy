@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
     source: :listing
   has_one :shop
   has_many :listings, through: :shop
+  has_many :reviews, dependent: :destroy
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

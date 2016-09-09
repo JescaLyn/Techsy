@@ -1,6 +1,7 @@
 import React from 'react';
 import ListingIndexContainer from '../listings/listing_index_container';
 import { Link } from 'react-router';
+import ReactStars from 'react-stars';
 
 class Shop extends React.Component {
   render() {
@@ -20,27 +21,23 @@ class Shop extends React.Component {
     return (
       <div className="shop-page">
 
-        <div className="shop-banner">
           <div className="shop-details">
 
-            <div className="shop-info">
               <img src={shop.image_url} />
-              <div className="shop-text">
+              <div className="shop-info">
                 <h2>{shop.name}</h2>
                 <p>{shop.description}</p>
-                <p>On Techsy since {year}</p>
-                <p><img src="http://cliparts.co/cliparts/gce/oXx/gceoXx7gi.png"/></p>
+                <p className="grayed">
+                  On Techsy since {year} ~ {shop.country}
+                </p>
+                <ReactStars
+                  value={shop.average_rating}
+                  size={24}
+                  edit={false}
+                  color2={'#ffa700'} />
               </div>
-            </div>
-
-            <div className = "shop-owner">
-              <p>SHOP OWNER</p>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Smiley.svg/2000px-Smiley.svg.png" />
-              <a href="#">Contact the Owner</a>
-            </div>
 
           </div>
-        </div>
 
         {createListing()}
 
