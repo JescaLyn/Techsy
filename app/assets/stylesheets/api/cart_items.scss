@@ -26,6 +26,15 @@
   background: var(--button-2-hover);
 }
 
+.ch2 {
+  display: flex;
+  justify-content: center;
+}
+
+.ch2 h1 {
+  margin-right: 30px;
+}
+
 .cart {
   background: white;
   border: 1px solid var(--light-border-color);

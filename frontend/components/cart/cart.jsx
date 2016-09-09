@@ -67,51 +67,57 @@ class Cart extends React.Component {
     let cart;
 
     if (Object.keys(this.props.cart).length < 1) {
-      cart = <div className="empty-cart"></div>;
-    } else {
-      cart = (
-        <main className="cart">
-          <section className="cart-items">
-            {cartItems}
-          </section>
-
-          <aside className="cart-calculations">
-            <p>
-              <span>Item Total:</span>
-              <span>$ {this.priceFix(this.totalItemCost())}</span>
-            </p>
-
-            <p>
-              <span>Estimated Tax:</span>
-              <span>$ {this.priceFix(this.taxCost())}</span>
-            </p>
-
-            <p className="grand-total">
-              <span>Item Total:</span>
-              <span>$ {this.priceFix(this.totalCost())}</span>
-            </p>
-
-            <button className="button full-width-button"
-              onClick={this.props.deleteUserCart}>
-              Checkout
+      return (
+        <div className="cart-page">
+          <header className="cart-header ch2">
+            <h1>Your cart is empty.</h1>
+            <button className="button" onClick={this.keepShopping}>
+              Keep shopping
             </button>
-          </aside>
-        </main>
+          </header>
+        </div>
+      );
+    } else {
+      return (
+        <div className="cart-page">
+          <header className="cart-header">
+            <h1>{this.numItems()} items in your cart</h1>
+            <button className="button" onClick={this.keepShopping}>
+              Keep shopping
+            </button>
+          </header>
+
+          <main className="cart">
+            <section className="cart-items">
+              {cartItems}
+            </section>
+
+            <aside className="cart-calculations">
+              <p>
+                <span>Item Total:</span>
+                <span>$ {this.priceFix(this.totalItemCost())}</span>
+              </p>
+
+              <p>
+                <span>Estimated Tax:</span>
+                <span>$ {this.priceFix(this.taxCost())}</span>
+              </p>
+
+              <p className="grand-total">
+                <span>Item Total:</span>
+                <span>$ {this.priceFix(this.totalCost())}</span>
+              </p>
+
+              <button className="button full-width-button"
+                onClick={this.props.deleteUserCart}>
+                Checkout
+              </button>
+            </aside>
+          </main>
+
+        </div>
       );
     }
-
-    return (
-      <div className="cart-page">
-        <header className="cart-header">
-          <h1>{this.numItems()} items in your cart</h1>
-          <button className="button" onClick={this.keepShopping}>
-            Keep shopping
-          </button>
-        </header>
-
-        {cart}
-      </div>
-    );
   }
 }
 

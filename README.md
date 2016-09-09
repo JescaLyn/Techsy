@@ -1,6 +1,6 @@
 # Techsy
 
-[Techsy live][heroku] **NB:** This should be a link to your production site
+[Techsy live][heroku]
 
 [heroku]: http://www.techsy.store
 
@@ -57,67 +57,66 @@ If the user enters a search query in the `SearchBar` and clicks "Search", the ba
 
 Listings are rendered in either the `ListingIndex` or `ListingDetail` component. The `ListingIndex` component renders all listings in the `listings` part of the frontend state in a grid. The UI is inspired by several different sites. Each `ListingIndexItem` shows the listing image, title, shop name, and price. The user may also mouseover the listing to see the listing subtitle.
 
-The `ListingDetail` component render 
+The `ListingDetail` component renders a page that shows all of the listing's details, including a tab box that can be toggled between the listing's `description` and its `reviews`. The user may select a quantity and click "Add to cart" to create a `CartItem` with the desired `quantity` and go to their cart. This quantity is capped at the listing's `quantity` value, which is the maximum number of the item that the shop owner is willing to sell. If the listing is one of the user's shop listings, the "Add to cart" button is replaced by an "Edit Listing" button that sends the user to the `ListingEditForm` component to edit the listing. There is also a mini `ListingIndex` in the bottom right corner with four of the shop's other listings and links to the shop for easy browsing.
 
 ### Cart
 
-On the database side, the notes are stored in one table in the database, which contains columns for `id`, `user_id`, `content`, and `updated_at`.  Upon login, an API call is made to the database which joins the user table and the note table on `user_id` and filters by the current user's `id`.  These notes are held in the `NoteStore` until the user's session is destroyed.  
+In the backend, the "cart" is just a join table called `cart_items` that joins the `users` and `listings` tables. Each `CartItem` has a `user_id`, `listing_id`, and `quantity`. The `quantity` represents the number of that item in the user's cart, not to be confused with the listing's `quantity`, which is the max number of that item that the shop owner is willing to sell.
 
-Notes are rendered in two different components: the `CondensedNote` components, which show the title and first few words of the note content, and the `ExpandedNote` components, which are editable and show all note text.  The `NoteIndex` renders all of the `CondensedNote`s as subcomponents, as well as one `ExpandedNote` component, which renders based on `NoteStore.selectedNote()`. The UI of the `NoteIndex` is taken directly from Evernote for a professional, clean look:  
+The frontend `cart` state is different from the backend. A user may add items to their cart before logging in, which updates the frontend `cart` but does not interact with the backend. When a user logs in after adding items to the cart, the `CartMiddleware` merges the frontend cart with the user's cart and replaces the frontend `cart` state with the user's updated cart. This is done in the `CartItemsController`, as shown below. The `CartItemsController` also allows the user to update the quantity of a listing in their cart by checking `params[:in_cart]`. If the user sends the update request from the `Cart` component, then the `CartItemsController` replaces the quantity in the current `CartItem`. However, if this request comes from any other component, such as `ListingDetail`, the incoming `quantity` is added to the existing quantity. So if a user has a Teddy Bear in their cart, they may add more Teddy Bears from the Teddy Bear listing page, or they can just adjust the quantity directly on the `Cart` component.
 
-![image of notebook index](wireframes/home-logged-in.jpg)
+```ruby
+class Api::CartItemsController < ApplicationController
+  def update_cart
+    cart = params[:cart] || {}
+    cart.keys.each do |key|
+      item = cart[key]
+      update_cart_item(item[:listing_id], item[:quantity])
+    end
 
-Note editing is implemented using the Quill.js library, allowing for a Word-processor-like user experience.
+    @cart_items = current_user.cart_items
+    render :index
+  end
 
+  private
 
+  def cart_find(listing_id)
+    CartItem.find_by(listing_id: listing_id, user_id: current_user.id)
+  end
+
+  def update_cart_item(listing_id, quantity, in_cart)
+    @cart_item = cart_find(listing_id)
+
+    if @cart_item && !in_cart
+      @cart_item[:quantity] = @cart_item[:quantity].to_i + quantity.to_i
+    elsif @cart_item && in_cart
+      @cart_item[:quantity] = quantity.to_i
+    else
+      @cart_item = CartItem.new(listing_id: listing_id, quantity: quantity)
+      @cart_item.user_id = current_user.id
+    end
+
+    @cart_item.save
+  end
+end
+```
+
+When the user clicks "Checkout" on the `Cart` component, the frontend `cart` is cleared, and the user's backend `CartItems` are deleted if the user is logged in.
 
 ### Shop
 
+When a user clicks "Sell On Techsy" in the `Header` component, they are redirected to a `SellSplash` component. This component prompts the user to open a shop. If the user clicks "Open your shop" while logged out, the `SessionModal` component will open, prompting the user to register or login. If they login, they will be redirected to the `ShopForm` component to create a shop. If they already have a shop, they will be redirected to their `Shop` component.
 
-
-### Note Rendering and Editing
-
-  On the database side, the notes are stored in one table in the database, which contains columns for `id`, `user_id`, `content`, and `updated_at`.  Upon login, an API call is made to the database which joins the user table and the note table on `user_id` and filters by the current user's `id`.  These notes are held in the `NoteStore` until the user's session is destroyed.  
-
-  Notes are rendered in two different components: the `CondensedNote` components, which show the title and first few words of the note content, and the `ExpandedNote` components, which are editable and show all note text.  The `NoteIndex` renders all of the `CondensedNote`s as subcomponents, as well as one `ExpandedNote` component, which renders based on `NoteStore.selectedNote()`. The UI of the `NoteIndex` is taken directly from Evernote for a professional, clean look:  
-
-![image of notebook index](wireframes/home-logged-in.jpg)
-
-Note editing is implemented using the Quill.js library, allowing for a Word-processor-like user experience.
-
-### Notebooks
-
-Implementing Notebooks started with a notebook table in the database.  The `Notebook` table contains two columns: `title` and `id`.  Additionally, a `notebook_id` column was added to the `Note` table.  
-
-The React component structure for notebooks mirrored that of notes: the `NotebookIndex` component renders a list of `CondensedNotebook`s as subcomponents, along with one `ExpandedNotebook`, kept track of by `NotebookStore.selectedNotebook()`.  
-
-`NotebookIndex` render method:
-
-```javascript
-render: function () {
-  return ({this.state.notebooks.map(function (notebook) {
-    return <CondensedNotebook notebook={notebook} />
-  }
-  <ExpandedNotebook notebook={this.state.selectedNotebook} />)
-}
-```
-
-### Tags
-
-As with notebooks, tags are stored in the database through a `tag` table and a join table.  The `tag` table contains the columns `id` and `tag_name`.  The `tagged_notes` table is the associated join table, which contains three columns: `id`, `tag_id`, and `note_id`.  
-
-Tags are maintained on the frontend in the `TagStore`.  Because creating, editing, and destroying notes can potentially affect `Tag` objects, the `NoteIndex` and the `NotebookIndex` both listen to the `TagStore`.  It was not necessary to create a `Tag` component, as tags are simply rendered as part of the individual `Note` components.  
-
-![tag screenshot](wireframes/tag-search.jpg)
+The `ShopForm` component will send a request to the database with all the information needed to create a new shop row in the `shops` table. Each `shop` has a `name`, `description`, `country`, `currency`, `kind`, `image_url`, and `user_id`. The user_id is assigned to the id of the backend `current_user`. If the `createShop` action fails, errors at the top of the form will prompt the user to fix their shop details. Once a user has a shop, they can visit their shop page from "Your Shop" in the `Header`. In their shop, they can click "Create a Listing" to go to the `ListingForm` component.
 
 ## Future Directions for the Project
 
 In addition to the features already implemented, I plan to continue work on this project.  The next steps for Techsy are outlined below.
 
-### Search
+### Search Dropdown
 
-Searching notes is a standard feature of Evernote.  I plan to utilize the Fuse.js library to create a fuzzy search of notes and notebooks.  This search will look go through tags, note titles, notebook titles, and note content.  
+I would like to implement a search dropdown that attempts to autofill the `SearchBar` as the user types with the most common words from listings' titles, subtitles, and descriptions. The backend for this is already implemented, and the frontend `search` state has a list of `searchTerms`. These search terms are filtered, removing some of the most common words in the English language, and sorted, from least frequent to most frequent. This sorting will allow me to design the dropdown so that more popular words appear higher in the dropdown.
 
-### Direct Messaging
+### Categories
 
-Although this is less essential functionality, I also plan to implement messaging between Techsy users.  To do this, I will use WebRTC so that notifications of messages happens seamlessly.  
+I would like to implement Categories that the products can be organized into. Ideally, there will be a banner beneath the Header that suggests categories for the user to choose from, and those pages will only show the listings relevant to that category.
