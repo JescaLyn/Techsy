@@ -45,9 +45,8 @@ end
 
 On the frontend, the user can register or login via a Session Modal for a professional look.
 
-![image of session modal](docs/wireframes/modal-screenshot.png)
-
 ```
+![image of session modal](docs/wireframes/modal-screenshot.png)
 
 ### Listings and Search
 
