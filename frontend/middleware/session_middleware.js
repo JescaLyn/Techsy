@@ -2,7 +2,8 @@ import { SessionConstants, receiveCurrentUser, receiveSessionErrors }
   from '../actions/session_actions';
 import { closeSessionModal, clearDestination } from '../actions/modal_actions';
 import { mergeExistingCart, clearCart } from '../actions/cart_actions';
-import { login, signup, logout } from "../util/session_api_util";
+import { login, signup, logout, fetchCurrentUser }
+  from "../util/session_api_util";
 import { hashHistory } from 'react-router';
 
 const SessionMiddleware = ({ getState, dispatch }) => next => action => {
@@ -38,6 +39,9 @@ const SessionMiddleware = ({ getState, dispatch }) => next => action => {
       };
       logout(success);
       break;
+    case SessionConstants.REQUEST_CURRENT_USER:
+      success = user => dispatch(receiveCurrentUser(user));
+      fetchCurrentUser(action.userId, success, error);
     default:
       next(action);
   }

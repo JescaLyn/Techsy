@@ -5,6 +5,7 @@ class Api::ShopsController < ApplicationController
 
   def create
     @shop = Shop.new(shop_params)
+    @shop.user_id = current_user.id
 
     if @shop.save
       render :show
@@ -15,6 +16,7 @@ class Api::ShopsController < ApplicationController
 
   def update
     @shop = Shop.find_by(id: params[:id])
+    @shop.user_id = current_user.id
 
     if @shop.update(shop_params)
       render :show
@@ -28,6 +30,6 @@ class Api::ShopsController < ApplicationController
   def shop_params
     params
       .require(:shop)
-      .permit(:name, :description, :country, :currency, :kind, :image_url, :user_id)
+      .permit(:name, :description, :country, :currency, :kind, :image_url)
   end
 end

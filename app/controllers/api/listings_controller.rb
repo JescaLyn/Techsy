@@ -15,6 +15,7 @@ class Api::ListingsController < ApplicationController
 
   def create
     @listing = Listing.new(listing_params)
+    @listing.shop_id = current_user.shop.id
 
     if @listing.save
       render :show
@@ -25,6 +26,7 @@ class Api::ListingsController < ApplicationController
 
   def update
     @listing = Listing.find_by(id: params[:id])
+    @listing.shop_id = current_user.shop.id
 
     if @listing.update(listing_params)
       render :show
@@ -54,7 +56,7 @@ class Api::ListingsController < ApplicationController
   def listing_params
     params
       .require(:listing)
-      .permit(:title, :subtitle, :price, :quantity, :description, :image_url, :shop_id)
+      .permit(:title, :subtitle, :price, :quantity, :description, :image_url)
   end
 
   def shop_id

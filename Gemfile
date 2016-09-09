@@ -32,6 +32,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'cloudinary'
 gem 'figaro'
+gem 'dynopoker'
 
 group :production do
   gem 'rails_12factor'

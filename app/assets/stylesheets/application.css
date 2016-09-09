@@ -74,6 +74,23 @@ h1 {
   background: var(--button-1-hover);
 }
 
+.button2 {
+  background: var(--button-2-color);
+  color: white;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+  width: 230px;
+  height: 35px;
+  display: block;
+  margin-top: 10px;
+}
+
+.button2:hover {
+  background: var(--button-2-hover);
+}
+
 .full-width-button {
   width: 100%;
   height: 4rem;
@@ -212,4 +229,31 @@ nav ul li {
   position: absolute;
   width: 50px;
   height: 50px;
+}
+
+.shop-link {
+  display: flex;
+  flex-direction: column;
+  width: 80px;
+  height: 20px;
+  color: var(--link-text);
+  padding: 0px 5px;
+  align-items: center;
+}
+
+.shop-icon {
+  background: white;
+  width: 28px;
+  height: 25px;
+  margin: 0 auto;
+  margin-bottom: 3px;
+}
+
+.shop-link:hover .shop-icon {
+  background: var(--light-background);
+}
+
+.shop-link:hover {
+  color: var(--light-background);
+  cursor: pointer;
 }

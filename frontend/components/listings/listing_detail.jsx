@@ -116,6 +116,42 @@ class ListingDetail extends React.Component {
       }
     };
 
+    const notUserListing = (
+      <div>
+        <label>Quantity
+          <Select
+            className="listing-detail-quantity"
+            value={this.state.quantity}
+            options={quantityOptions}
+            onChange={this.updateQuantity}
+            searchable={false}
+            clearable={false}
+          />
+        </label>
+
+        <button
+          className="button full-width-button"
+          onClick={this.addToCart}>Add to cart</button>
+      </div>
+    );
+
+    const userListing = (
+      <Link to={`/listings/edit/${listing.id}`}>
+        <button
+          className="button2 full-width-button">
+          Edit Listing
+        </button>
+      </Link>
+    );
+
+    const buttonContent = () => {
+      if (this.props.currentUser.id === listing.user_id) {
+        return userListing;
+      } else {
+        return notUserListing;
+      }
+    };
+
     return (
       <main className="listing-detail">
 
@@ -164,20 +200,7 @@ class ListingDetail extends React.Component {
               <p className="listing-big-text">{listing.title}</p>
               <p className="listing-big-text">${listing.price}</p>
               <p>{listing.subtitle}</p>
-              <label>Quantity
-                <Select
-                  className="listing-detail-quantity"
-                  value={this.state.quantity}
-                  options={quantityOptions}
-                  onChange={this.updateQuantity}
-                  searchable={false}
-                  clearable={false}
-                />
-              </label>
-
-              <button
-                className="button full-width-button"
-                onClick={this.addToCart}>Add to cart</button>
+              {buttonContent()}
             </section>
 
             <section className="listing-detail-shop cf">

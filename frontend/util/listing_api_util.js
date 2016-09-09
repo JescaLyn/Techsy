@@ -30,7 +30,7 @@ export const createListing = (listing, success, error) => {
 export const updateListing = (listing, success, error) => {
   $.ajax({
     method: "patch",
-    url: `/api/listing/${listing.id}`,
+    url: `/api/listings/${listing.listing.id}`,
     data: listing,
     success,
     error

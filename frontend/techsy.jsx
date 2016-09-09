@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import * as CartActions from './actions/cart_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -17,6 +16,5 @@ document.addEventListener("DOMContentLoaded", () => {
     store = configureStore();
   }
   window.store = store;
-  window.CartActions = CartActions;
   ReactDOM.render(<Root store={store} />, document.getElementById("root"));
 });

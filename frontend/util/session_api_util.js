@@ -26,3 +26,12 @@ export const logout = success => {
     error: () => console.log("Logout unsuccessful")
   });
 };
+
+export const fetchCurrentUser = (userId, success, error) => {
+  $.ajax({
+    method: "get",
+    url: `/api/users/${userId}`,
+    success,
+    error
+  });
+};

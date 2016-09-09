@@ -3,15 +3,19 @@ import React from 'react';
 class ListingForm extends React.Component {
   constructor(props) {
     super(props);
+    const listing = this.props.listing;
+
     this.state = {
-      title: "",
-      subtitle: "",
-      description: "",
-      price: "",
-      quantity: "",
-      image_url: "",
+      id: listing.id,
+      title: listing.title,
+      subtitle: listing.subtitle,
+      description: listing.description,
+      price: listing.price,
+      quantity: listing.quantity,
+      image_url: listing.image_url,
       shop_id: this.props.shopId
     };
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleImageUpload = this.handleImageUpload.bind(this);
     this.openCloudinaryWidget = this.openCloudinaryWidget.bind(this);
@@ -25,7 +29,7 @@ class ListingForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createListing({ listing: this.state });
+    this.props.updateListing({ listing: this.state });
   }
 
   renderErrors(){
@@ -58,7 +62,7 @@ class ListingForm extends React.Component {
   render() {
     return (
       <div className="listing-form-page">
-        <h1>Add a new listing</h1>
+        <h1>Edit this listing</h1>
 
         <form onSubmit={this.handleSubmit} className="listing-form">
           {this.renderErrors()}
@@ -121,7 +125,7 @@ class ListingForm extends React.Component {
             </div>
           </div>
 
-          <button className="button">Create Listing</button>
+          <button className="button">Edit Listing</button>
 
         </form>
       </div>

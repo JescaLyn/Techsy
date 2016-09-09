@@ -4,7 +4,8 @@ import { logout } from '../../actions/session_actions';
 import { updateCartItem, receiveCartItem } from '../../actions/cart_actions';
 
 const mapStateToProps = state => ({
-  listing: state.listing.currentListing
+  listing: state.listing.currentListing,
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({

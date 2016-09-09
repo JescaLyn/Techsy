@@ -6,7 +6,7 @@ import { hashHistory } from 'react-router';
 const ListingsMiddleware = ({ getState, dispatch }) => next => action => {
   let success = listing => dispatch(receiveListing(listing));
   let allListingsSuccess = listings => dispatch(receiveListings(listings));
-  let createListingSuccess = listing => {
+  let gotoListingSuccess = listing => {
     dispatch(receiveListing(listing));
     hashHistory.push(`/listings/${listing.id}`);
   };
@@ -25,14 +25,14 @@ const ListingsMiddleware = ({ getState, dispatch }) => next => action => {
       API.fetchListings(allListingsSuccess, error, action.filters);
       return next(action);
     case ListingConstants.UPDATE_LISTING:
-      API.updateListing(action.listing, success, error);
+      API.updateListing(action.listing, gotoListingSuccess, error);
       return next(action);
     case ListingConstants.DELETE_LISTING:
       success = () => console.log("Delete successful");
       API.deleteListing(action.listingId, success, error);
       return next(action);
     case ListingConstants.CREATE_LISTING:
-      API.createListing(action.listing, createListingSuccess, error);
+      API.createListing(action.listing, gotoListingSuccess, error);
       return next(action);
     default:
       next(action);
