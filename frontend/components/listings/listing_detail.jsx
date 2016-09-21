@@ -155,15 +155,18 @@ class ListingDetail extends React.Component {
 
     return (
       <main className="listing-detail">
-
         <div className="listing-detail-shop-banner">
-          <img
+          <Link to={"/shops/" + listing.shop_id}>
+            <img
             src={listing.shop_image_url}
             className="listing-detail-shop-logo"
-          />
-          <p className="listing-detail-shop-name">
-            {listing.shop_name}
-          </p>
+            />
+          </Link>
+          <Link to={"/shops/" + listing.shop_id}>
+            <p className="listing-detail-shop-banner-name">
+              {listing.shop_name}
+            </p>
+          </Link>
         </div>
 
         <div className="listing-detail-box">

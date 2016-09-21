@@ -68,7 +68,9 @@ class AppRouter extends React.Component {
   }
 
   requestForShop(nextState) {
-    this.props.requestCurrentUser(this.props.currentUser.id);
+    if (this.props.currentUser) {
+      this.props.requestCurrentUser(this.props.currentUser.id);
+    }
     this.props.requestShop(nextState.params.id);
     this.props.requestListings({ shop_id: nextState.params.id });
   }

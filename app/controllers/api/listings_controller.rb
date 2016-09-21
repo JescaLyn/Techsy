@@ -1,16 +1,16 @@
 class Api::ListingsController < ApplicationController
   def index
     if shop_id
-      @listings = Listing.where("shop_id = ?", shop_id)
+      @listings = Listing.where("shop_id = ?", shop_id).includes(:shop)
     elsif search_filter
-      @listings = Listing.by_search_filter(search_filter)
+      @listings = Listing.by_search_filter(search_filter).includes(:shop)
     else
-      @listings = Listing.all
+      @listings = Listing.includes(:shop)
     end
   end
 
   def show
-    @listing = Listing.find_by(id: params[:id])
+    @listing = Listing.includes(:shop).find_by(id: params[:id])
   end
 
   def create

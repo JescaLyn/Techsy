@@ -53,13 +53,19 @@ class CartItem extends React.Component {
   }
 
   render() {
-    const quantityOptions = Array(parseInt(this.props.item.listing_quantity))
-      .fill()
-      .map((_, i) => (
-        <option value={i + 1} key={i}>
-          {i + 1}
-        </option>
-      ));
+    const quantityOptions = () => {
+      if (this.props.item.listing_quantity) {
+        return (
+          Array(parseInt(this.props.item.listing_quantity))
+          .fill()
+          .map((_, i) => (
+            <option value={i + 1} key={i}>
+              {i + 1}
+            </option>
+          ))
+        );
+      }
+    };
 
     return (
       <div className="cart-item">
