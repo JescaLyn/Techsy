@@ -91,7 +91,7 @@ class CartItem extends React.Component {
         <select className="cart-quantity"
           onChange={this.updateQuantity.bind(this)}
           defaultValue={this.props.item.quantity}>
-          {quantityOptions}
+          {quantityOptions()}
         </select>
 
         {this.itemPrice()}
