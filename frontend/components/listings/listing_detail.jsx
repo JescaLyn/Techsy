@@ -67,6 +67,7 @@ class ListingDetail extends React.Component {
       listing_price: listing.price,
       listing_subtitle: listing.subtitle,
       listing_title: listing.title,
+      listing_quantity: listing.quantity,
       quantity: this.state.quantity,
       shop_id: listing.shop_id,
       shop_logo: listing.shop_logo,

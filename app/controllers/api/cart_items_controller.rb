@@ -9,10 +9,10 @@ class Api::CartItemsController < ApplicationController
     cart = params[:cart] || {}
     cart.keys.each do |key|
       item = cart[key]
-      update_cart_item(item[:listing_id], item[:quantity])
+      update_cart_item(item[:listing_id], item[:quantity], false)
     end
 
-    @cart_items = current_user.cart_items
+    @cart_items = current_user.cart_items.includes(:listing).includes(:shop)
     render :index
   end
 
